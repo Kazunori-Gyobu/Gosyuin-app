@@ -1,0 +1,62 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  TagetRubyVersion: 2.6
+  Exclude:
+    - app/channels/**/*
+    - node_modules/**/*
+    - bin/*
+    - spec/**
+    - lib/*
+    - db/migrate/*
+    - db/*
+    - lib/tasks/*
+    - public/*
+    - tmp/*
+    - vendor/**/*
+    - app/models/follow.rb
+    - config/spring.rb
+    - config/unicorn.rb
+    - config/deploy.rb
+    - config/deploy/production.rb
+    - config/application.rb
+    - config/environments/development.rb
+
+  Rails:
+    Enabled: true
+
+# 日本語でのコメントを許可
+AsciiComements:
+  Enabled: false
+
+# クラスのコメント必須を無視
+Documentation:
+  Enabled: false
+
+# モジュール名::クラス名の定義を許可
+ClassAndModuleChidren:
+  Enabled: false
+
+# メソッド名のprefixに「set_」「get_」を許可
+AccessorMethodName:
+  Enabled: false
+
+# 「and」「or」の使用を許可
+AndOr:
+  Enabled: false
+
+# 文字リテラルのイミュータブル宣言を無視
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# 行の文字数を制限しない
+Metrics/AbcSize:
+  Enabled: false
+
+# ブロック内の行数は50まで
+Metrics/BlockLength:
+  Enabled: false
+
+# 複数行での「lambda」で「ー>」による省略記法を許可
+Lambda:
+  Enabled: false

@@ -1,0 +1,48 @@
+version: '3'
+services: 
+  app:
+    build: .
+    env_file: 
+      - ./environments/db.env
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    ports: 
+      - '3000:3000'
+    volumes:
+      - .:/g_app
+      - public-data:/g_app/public
+      - tmp-data:/g_app/tmp
+      - sockets:/g_app/tmp/sockets
+    depends_on: 
+      - db
+    environment: 
+      - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub"
+    tty: true
+    stdin_open: true
+  web:
+    build: 
+      context: containers/nginx
+    ports: 
+      - '80:80'
+    volumes: 
+      - public-data:/g_app/public
+      - tmp-data:/g_app/tmp
+      - sockets:/g_app/tmp/sockets
+    depends_on: 
+      - app
+  db:
+    image: mysql:5.7
+    env_file: 
+      - ./environments/db.env
+    ports: 
+      - '3306:3306'
+    volumes: 
+      - db-data:/var/lib/mysql
+  chrome:
+    image: selenium/standalone-chrome-debug
+    logging: 
+      driver: none
+volumes: 
+  public-data:
+  tmp-data:
+  db-data:
+  sockets:
