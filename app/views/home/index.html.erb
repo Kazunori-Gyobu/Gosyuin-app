@@ -1,18 +1,19 @@
-<!-- ======= Hero Section ======= -->
-  <section id="hero">
-    <div class="hero-container">
+<!-- ======= Hello Section ======= -->
+  <section id="hello">
+    <div class="hello-container">
       <h1>ようこそ御朱印管理アプリへ</h1>
       <h2>
         御朱印を思い出と共に記録しましょう。</h2>
       <a href="#about" class="btn-get-started scrollto">機能紹介</a>
-      <a href="#about" class="btn-get-started scrollto">サインアップ</a>
-      <a href="#about" class="btn-get-started scrollto">かんたんログイン</a>
+      <a href="#about" class="btn-get-started scrollto">新規登録</a>
     </div>
-  </section><!-- #hero -->
+  </section>
+<!-- #hero -->
 
   <main id="main">
 
     <!-- ======= About Us Section ======= -->
+
     <section id="about" class="about">
       <div class="container">
 
@@ -20,10 +21,12 @@
           <h2>このアプリで出来ること</h2>
         </div>
 
-        <div class="row">
-          <div class="col-lg-6 order-1 order-lg-2">
-           
+        <div class="row">  
+
+        <div class="col-lg-6 order-1 order-lg-2">
+            <%= image_tag("about-gosyuin.jpg", class: "img-fluid", alt: "御朱印帳", ) %>
           </div>
+          
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1">
             <h3>御朱印は御朱印帳ごとに登録出来るので、どこにあるかがすぐにわかります。</h3>
             <p class="font-italic">
@@ -46,6 +49,5 @@
             </p>
           </div>
         </div>
-
-      </div>
-    </section><!-- End About Us Section -->
+    </div>
+  </main>
