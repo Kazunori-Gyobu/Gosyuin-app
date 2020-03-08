@@ -27,12 +27,45 @@ textarea {
   resize: vertical;
 }
 
+.main-contents {
+  margin: 100px 0;
+}
+
 .center {
   text-align: center;
 }
 
 .center h1 {
   margin-bottom: 10px;
+}
+
+/* btn */
+
+.btn-primary {
+  color: #fff; //ボタンのテキストの色
+  background: $active-C; //ボタンの背景色
+  border-color: $active-C;
+}
+
+.btn-primary:hover, .btn-primary:focus, 
+.btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
+.btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary, 
+.open > .dropdown-toggle.btn-primary:hover,
+.open > .dropdown-toggle.btn-primary:focus, 
+.open > .dropdown-toggle.btn-primary.focus,
+.btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
+  color: #fff; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+  background: $default-C; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+  border-color: $default-C;
+}
+
+.btn-primary.outline {
+  color: $active-C; //アウトラインのみのボタンのテキストの色
+  border: 3px solid $active-C; //アウトラインのみのボタンの線の色
+  border-color: $active-C;
 }
 
 /* navbar */
@@ -46,6 +79,18 @@ textarea {
   font-weight: bold;
   color: #fff;
   }
+
+/* flash */
+.flash {
+  color: #fff;
+  text-align: center;
+  .notice {
+    background-color: $blue;
+  }
+  .alert {
+    background-color: red;
+  }
+}
 
 /* hello section */
 
