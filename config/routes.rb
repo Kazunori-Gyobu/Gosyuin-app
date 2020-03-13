@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  get 'users/show'
   root 'home#index'
   devise_for :users,
     path: '',
@@ -15,4 +13,5 @@ Rails.application.routes.draw do
       sessions: "users/sessions",
       confirmations: "users/confirmations"
     }
+  resources :users, only: [:index, :show]
 end

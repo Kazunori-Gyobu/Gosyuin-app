@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <title>GApp</title>
+    <title><%= (yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,7 +13,7 @@
     <div class="container-fluid">
       <!-- ======= Header ======= -->
       <header>
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color:#e9adca;">
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color:#e9adca;">
           <%= link_to "御朱印管理アプリ", root_path, class: 'navbar-brand mb-0 h1' %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,13 +23,13 @@
               <li class="nav-item"><%= link_to "ホーム", root_path, class: "nav-link" %></a></li>
               <li class="nav-item"><%= link_to "投稿一覧", "#", class: "nav-link" %></li>
               <% if user_signed_in? %>
-                <li class="nav-item"><%= link_to "ユーザー一覧", "#", class: "nav-link" %></li>
+                <li class="nav-item"><%= link_to "ユーザー一覧", users_path, class: "nav-link" %></li>
                 <li class="nav-item drop-down">
                   <a href="#" class="nav-link dropdown-toggle"  role="button" data-toggle="dropdown" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">アカウント</a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                    <%= link_to "プロフィール", "#", class: "dropdown-item" %>
-                    <%= link_to "設定", "#", class: "dropdown-item"  %>
-                    <%= link_to "ログアウト", "#", class: "dropdown-item" %>
+                    <%= link_to "プロフィール", current_user, class: "dropdown-item" %>
+                    <%= link_to "プロフィール編集", edit_user_registration_path, class: "dropdown-item"  %>
+                    <%= link_to "ログアウト", destroy_user_session_path, class: "dropdown-item" %>
                   </div>
                 </li>
               <% else %>
@@ -43,6 +43,7 @@
         <%= render "layouts/notifications" %>
       </div>
     <%= yield %>
+    <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html>
