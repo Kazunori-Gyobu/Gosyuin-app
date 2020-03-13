@@ -6,10 +6,11 @@ Rails.application.routes.draw do
       sign_up: '',
       sign_in: 'login',
       sign_out: 'logout',
-      registration: 'signup'
+      registration: "signup",
     },
     controllers: {
-      registraions: 'users/registrations',
-      sessions: 'users/sessions'
+      registrations: "users/registrations",
+      sessions: "users/sessions",
+      confirmations: "users/confirmations"
     }
 end
