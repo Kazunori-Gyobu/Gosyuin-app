@@ -7,6 +7,16 @@
   box-sizing:         border-box;
 }
 
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
 $default-C:#58495d;
 $active-C:#e9adca;
 $default-bg:#f2e1e6;S
@@ -15,7 +25,7 @@ $default-bg:#f2e1e6;S
 body {
   display: block;
   padding-top: 4.5rem;
-  margin: 0px;
+  margin-top: 100px;
 }
 
 section {
@@ -27,12 +37,45 @@ textarea {
   resize: vertical;
 }
 
+.main-contents {
+  margin: 100px 0;
+}
+
 .center {
   text-align: center;
 }
 
 .center h1 {
   margin-bottom: 10px;
+}
+
+/* btn */
+
+.btn-primary {
+  color: #fff; //ボタンのテキストの色
+  background: $active-C; //ボタンの背景色
+  border-color: $active-C;
+}
+
+.btn-primary:hover, .btn-primary:focus, 
+.btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
+.btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary, 
+.open > .dropdown-toggle.btn-primary:hover,
+.open > .dropdown-toggle.btn-primary:focus, 
+.open > .dropdown-toggle.btn-primary.focus,
+.btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
+  color: #fff; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+  background: $default-C; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+  border-color: $default-C;
+}
+
+.btn-primary.outline {
+  color: $active-C; //アウトラインのみのボタンのテキストの色
+  border: 3px solid $active-C; //アウトラインのみのボタンの線の色
+  border-color: $active-C;
 }
 
 /* navbar */
@@ -47,12 +90,24 @@ textarea {
   color: #fff;
   }
 
+/* flash */
+.flash {
+  color: #fff;
+  text-align: center;
+  .notice {
+    background-color: $blue;
+  }
+  .alert {
+    background-color: red;
+  }
+}
+
 /* hello section */
 
 #hello {
   width: 100%;
   height: 75vh;
-  background-image: image-url('kasugataisya.jpg') top center;
+  background: image-url('/assets/kasugataisya.jpg') top center;
   background-size: cover;
   position: relative;
   margin-bottom: -80px;
@@ -60,7 +115,7 @@ textarea {
 
 #hello:before {
   content: "";
-  background: rgba(88, 73, 93, 0.85);
+  background: rgba(88, 73, 93, 0.75);
   position: absolute;
   bottom: 0;
   top: 0;
