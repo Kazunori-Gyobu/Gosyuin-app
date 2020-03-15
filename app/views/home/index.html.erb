@@ -1,11 +1,12 @@
 <!-- ======= Hello Section ======= -->
+<% provide :title, 'ホーム' %>
   <section id="hello">
     <div class="hello-container">
       <h1>ようこそ御朱印管理アプリへ</h1>
       <h2>
         御朱印を思い出と共に記録しましょう。</h2>
       <a href="#about" class="btn-get-started scrollto">機能紹介</a>
-      <a href="#about" class="btn-get-started scrollto">新規登録</a>
+      <%= link_to "新規登録", new_user_registration_path, class: "btn-get-started scrollto" %>
     </div>
   </section>
 <!-- #hero -->

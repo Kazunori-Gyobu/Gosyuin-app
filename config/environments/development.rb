@@ -31,7 +31,16 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: ENV.fetch('DEV_SMTP_ADDRESS'),
+    domain: ENV.fetch('DEV_SMTP_DOMEIN'),
+    port: ENV.fetch('DEV_SMTP_PORT'),
+    user_name: ENV.fetch('DEV_SMTP_USER_NAME'),
+    password: ENV.fetch('DEV_SMTP_PASSWORD'),
+    authentication: 'plain'
+  }
 
   config.action_mailer.perform_caching = false
 
