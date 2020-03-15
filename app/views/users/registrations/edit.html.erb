@@ -1,48 +1,67 @@
 <div class="main-contents">
-  <div class="row">
-    <div class="col-lg-4 col-md-6 ml-auto mr-auto">
-      <h1>プロフィールの編集</h1>
-      <hr>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= devise_error_messages! %>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+            <h1>プロフィールの編集</h1>
+            <hr>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= render "devise/shared/error_messages" %>
 
-        <div class="form-group">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, class: 'form-control'  %>
+            <div class="form-group">
+                <%= f.label :name %><br />
+                <%= f.text_field :name, autofocus: false, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, class: 'form-control'  %>
+            </div>
+
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %>
+            <% end %>
+
+            <div class="form-group">
+                <%= f.label :password %>
+                <%= f.password_field :password, autocomplete: "off", class: 'form-control'  %>
+                <% if @minimum_password_length %>
+                <br />
+                <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+                <% end %>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'  %>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :profile %><br />
+                <%= f.text_area :profile, class: 'form-control'  %>
+            </div>
+
+            <div class="form-group">
+                <% if current_user.persisted? && current_user.avatar? %>
+                <%= image_tag current_user.avatar.to_s %>
+                <label><%= f.check_box :remove_avatar %> 画像を削除</label>
+                <% else %>
+                <%= image_tag("default.jpg", :size => "200x200") %>
+                <%= f.hidden_field :avatar_cache %>
+                <% end %>
+                <%= f.file_field :avatar, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+                <%= f.submit t('.update'), class: 'btn btn-lg btn-block btn-primary' %>
+            </div>
+            <% end %>
+            <hr>
+
+            <h2><%= t('.cancel_my_account') %></h2>
+
+            <p><%= t('.unhappy') %> <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
+
+            <%= link_to t('users.shared.links.back'), :back %>
+            <hr>
         </div>
-
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %>
-        <% end %>
-
-        <div class="form-group">
-          <%= f.label :profile %><br />
-          <%= f.text_area :profile, class: 'form-control'  %>
-        </div>
-
-        <div class="form-group">
-          <% if current_user.persisted? && current_user.avatar? %>
-            <%= image_tag current_user.avatar.to_s %>
-            <label><%= f.check_box :remove_avatar %> 画像を削除</label>
-          <% else %>
-            <%= image_tag("default.jpg", :size => "200x200") %>
-            <%= f.hidden_field :avatar_cache %>
-          <% end %>
-            <%= f.file_field :avatar, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.submit t('.update'), class: 'btn btn-lg btn-block btn-primary' %>
-        </div>
-      <% end %>
-      <hr>
-
-      <h2><%= t('.cancel_my_account') %></h2>
-
-      <p><%= t('.unhappy') %> <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
-
-      <%= link_to t('devise.shared.links.back'), :back %>
-      <hr>
     </div>
-  </div>
 </div>

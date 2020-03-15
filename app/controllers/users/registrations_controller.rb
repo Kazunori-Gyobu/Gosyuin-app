@@ -57,7 +57,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_update_path_for(resource)
-    account_page_path
+    current_user
   end
 
   # The path used after sign up.

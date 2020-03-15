@@ -18,6 +18,7 @@ RSpec.describe "User pages", type: :request do
   end
 
   describe "GET #new" do
+
     it "newリクエストが成功すること" do
       get new_user_registration_path
       expect(response).to be_successful
@@ -27,7 +28,7 @@ RSpec.describe "User pages", type: :request do
 
   describe "GET #show" do
 
-    context "ログイン済みのユーザーの時" do
+    context "ログインしているのユーザーの場合" do
       it "showリクエストが成功すること" do
         sign_in user
         get user_path(user)
@@ -36,7 +37,7 @@ RSpec.describe "User pages", type: :request do
       end
     end
 
-    context "ログインしていないユーザーの時" do
+    context "ログインしていないユーザーの場合" do
       it "ログイン画面にリダイレクトされること" do
         get user_path(user)
         expect(response).to redirect_to new_user_session_path
