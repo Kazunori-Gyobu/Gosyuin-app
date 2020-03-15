@@ -14,8 +14,7 @@ services:
       - sockets:/g_app/tmp/sockets
     depends_on: 
       - db
-    environment: 
-      - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub"
+      - chrome
     tty: true
     stdin_open: true
   web:
@@ -38,9 +37,9 @@ services:
     volumes: 
       - db-data:/var/lib/mysql
   chrome:
-    image: selenium/standalone-chrome-debug
-    logging: 
-      driver: none
+    image: selenium/standalone-chrome:3.141.59-dubnium
+    ports:
+      - 4444:4444
 volumes: 
   public-data:
   tmp-data:
