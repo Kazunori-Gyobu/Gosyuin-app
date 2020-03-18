@@ -17,3 +17,14 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-sm-10 mx-auto mt-5 px-0">
+        <% if @user.posts.any?%>
+        <h3>投稿(<%= @user.posts.count %>)</h3>
+        <ol class="posts">
+            <%= render @posts %>
+        </ol>
+        <%= paginate @posts %>
+        <% end %>
+    </div>
+</div>
