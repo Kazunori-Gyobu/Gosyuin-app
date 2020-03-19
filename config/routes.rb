@@ -14,5 +14,5 @@ Rails.application.routes.draw do
       confirmations: "users/confirmations"
     }
   resources :users, only: [:index, :show]
-  resources :posts, only: [:index, :create, :destroy]
+  resources :posts, only: [:index, :new, :create, :destroy]
 end
