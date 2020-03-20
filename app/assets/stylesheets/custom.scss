@@ -27,7 +27,7 @@ body {
 }
 
 section {
-  padding: 80px;
+  padding: 10px;
   overflow: auto;
 }
 
@@ -99,6 +99,8 @@ textarea {
 #flash {
   color: #343a40;
   text-align: center;
+  margin: 10px 0;
+  font-size: 1.5em;
   .notice {
     background-color: $default-bg;
   }
