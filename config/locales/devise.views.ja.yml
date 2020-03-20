@@ -3,6 +3,7 @@ ja:
     attributes:
       user:
         name: "名前"
+        profile: "プロフィール"
         confirmation_sent_at: "パスワード確認送信時刻"
         confirmation_token: "パスワード確認用トークン"
         confirmed_at: "パスワード確認時刻"
@@ -10,7 +11,7 @@ ja:
         current_password: "現在のパスワード"
         current_sign_in_at: "現在のログイン時刻"
         current_sign_in_ip: "現在のログインIPアドレス"
-        email: Eメール
+        email: メールアドレス
         encrypted_password: "暗号化パスワード"
         failed_attempts: "失敗したログイン試行回数"
         last_sign_in_at: "最終ログイン時刻"
@@ -101,6 +102,7 @@ ja:
         unhappy: "気に入りません"
         update: "更新"
         we_need_your_current_password_to_confirm_your_changes: "変更を反映するには現在のパスワードを入力してください"
+        profile: "プロフィール"
       new:
         sign_up: "アカウント登録"
       signed_up: "アカウント登録が完了しました。"
@@ -115,6 +117,7 @@ ja:
         sign_in: "ログイン"
         email: "Eメール"
         password: "パスワード"
+        profile: "プロフィール"
       signed_in: "ログインしました。"
       signed_out: "ログアウトしました。"
     shared:
