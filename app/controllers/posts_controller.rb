@@ -14,6 +14,7 @@ class PostsController < ApplicationController
       flash[:success] = "記事が投稿されました"
       redirect_to current_user
     else
+      @feed_items = []
       render 'users/sessions/new'
     end
   end
