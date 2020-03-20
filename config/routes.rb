@@ -13,6 +13,11 @@ Rails.application.routes.draw do
       sessions: "users/sessions",
       confirmations: "users/confirmations"
     }
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    member do
+      get :following, :followers
+    end
+  end
   resources :posts, only: [:index, :new, :create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 end

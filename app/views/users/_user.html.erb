@@ -1,0 +1,8 @@
+<li>
+    <%= image_tag @user.avatar.to_s, :class => "border mb-2 mx-auto", :size => "50x50", :alt =>"アバター"  %>
+    <%= link_to user.name, user %>
+    <% if current_user.admin? && !current_user?(user) %>
+    | <%= link_to "delete", user, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+    <% end %>
+</li>

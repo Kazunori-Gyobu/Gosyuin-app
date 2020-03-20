@@ -44,4 +44,16 @@ RSpec.describe "User pages", type: :request do
       end
     end
   end
+
+  describe "フォロー/フォロワー" do
+    it "ログインしていないとフォローできないこと" do
+      get following_user_path(user)
+      expect(response).to redirect_to new_user_session_path
+    end
+
+    it "ログインしていないとフォロー解除できないこと" do
+      get followers_user_path(user)
+      expect(response).to redirect_to new_user_session_path
+    end
+  end
 end

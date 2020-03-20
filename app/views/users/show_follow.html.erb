@@ -1,0 +1,30 @@
+<% provide(:title, @title) %>
+<div class="row">
+    <aside class="col-md-4">
+        <section class="user_info">
+            <%= image_tag @user.avatar.to_s, :class => "float-center border mb-2 mx-auto", :size => "100x100", :alt =>"アバター" %>
+            <h1><%= @user.name %></h1>
+            <span><%= link_to "プロフィール", @user %></span>
+            <span><b>投稿記事:</b> <%= @user.posts.count %></span>
+        </section>
+        <section class="stats">
+            <%= render 'shared/stats' %>
+            <% if @users.any? %>
+            <div class="user_avatars">
+                <% @users.each do |user| %>
+                <%= image_tag @user.avatar.to_s, :class => "border mb-2 mx-auto", :size => "100x100", :alt =>"アバター" %>
+                <% end %>
+            </div>
+            <% end %>
+        </section>
+    </aside>
+    <div class="col-md-8">
+        <h3><%= @title %></h3>
+        <% if @users.any? %>
+        <ul class="users follow">
+            <%= render @users %>
+        </ul>
+        <%= paginate @users %>
+        <% end %>
+    </div>
+</div>
