@@ -5,7 +5,7 @@ RSpec.describe "Posts", type: :request do
   let(:anotheruser) { FactoryBot.create(:user, name: "Another User") }
 
   it "ログインしていなければリダイレクトされること" do
-    post microposts_path
-    expect(response).to redirect_to login_url
+    post posts_path
+    expect(response).to redirect_to new_user_session_path
   end
 end
