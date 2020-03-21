@@ -9,5 +9,9 @@ FactoryBot.define do
     trait :with_posts do
       after(:create) { |user| create_list(:post, 5, user: user) }
     end
+
+    trait :with_relationships do
+      after(:create) { |user| create_list(:relationship, 5, user: user) }
+    end
   end
 end
