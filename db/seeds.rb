@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create!(name: "山田太郎",
 email: "yamada@example.com",
+profile: "はじめまして！私も御朱印管理アプリをはじめました！",
 password: "foobar",
 password_confirmation: "foobar",
 confirmed_at: Time.now)
@@ -15,9 +16,16 @@ confirmed_at: Time.now)
   User.create!(
     name: Faker::Japanese::Name.name,
     email: Faker::Internet.email,
+    profile: Faker::Lorem.sentence,
     password: "password",
     password_confirmation: "password",
     confirmed_at: Time.now
   )
+end
+
+users = User.order(:created_at).take(6)
+50.times do
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| user.posts.create!(content: content) }
 end
 
