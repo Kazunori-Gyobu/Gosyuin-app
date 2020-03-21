@@ -9,8 +9,8 @@ services:
       - '3000:3000'
     volumes:
       - .:/g_app
-      - public-data:/g_app/public
-      - tmp-data:/g_app/tmp
+      - ./public:/g_app/public
+      - ./tmp:/g_app/tmp
       - sockets:/g_app/tmp/sockets
     depends_on: 
       - db
@@ -23,8 +23,8 @@ services:
     ports: 
       - '80:80'
     volumes: 
-      - public-data:/g_app/public
-      - tmp-data:/g_app/tmp
+      - ./public:/g_app/public
+      - ./tmp:/g_app/tmp
       - sockets:/g_app/tmp/sockets
     depends_on: 
       - app
@@ -41,7 +41,5 @@ services:
     ports:
       - 4444:4444
 volumes: 
-  public-data:
-  tmp-data:
   db-data:
   sockets:
