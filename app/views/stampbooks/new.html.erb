@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+        <h1 class="text-center">御朱印帳の登録</h1>
+        <hr>
+        <%= form_for(@stampbook, url: stampbooks_path) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <div class="form-group">
+            <%= f.label :name, "御朱印帳名" %>
+            <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :given_date, "取得日" %>
+            <%= f.date_field :given_date, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :cover, "御朱印帳の画像" %>
+            <%= f.file_field :cover, class: 'form-control-file' %>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <%= f.radio_button(:distinction, "神社", class: 'form-check-input') %>
+            <%= f.label(:distinction, "神社", value: "神社", class: 'form-check-label') %>
+            <%= f.radio_button(:distinction, "寺院", class: 'form-check-input') %>
+            <%= f.label(:distinction, "寺院", value: "寺院") %>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :remarks, "説明文" %>
+            <%= f.text_area :remarks, autofocus: false, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+            <%= f.submit "送信", class: "btn btn-primary btn-block btn-lg" %>
+        </div>
+        <% end %>
+    </div>
+</div>

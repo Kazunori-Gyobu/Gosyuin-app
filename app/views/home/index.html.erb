@@ -12,9 +12,14 @@
         </section>
     </aside>
 
-    <div class="col-md-8">
+    <div class="col-md-4">
         <h3>タイムライン</h3>
         <%= render 'shared/feed' %>
+    </div>
+
+    <div class="col-md-4">
+        <h3>御朱印帳</h3>
+        <%= render @stampbooks %>
     </div>
 </div>
 

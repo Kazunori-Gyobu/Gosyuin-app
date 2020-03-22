@@ -5,6 +5,6 @@ FactoryBot.define do
     cover { "MyString" }
     remarks { "MyText" }
     type { "" }
-    user { nil }
+    user
   end
 end

@@ -22,4 +22,5 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
   resources :relationships, only: [:create, :destroy]
+  resources :stampbooks, only: [:new, :create, :edit, :destroy]
 end
