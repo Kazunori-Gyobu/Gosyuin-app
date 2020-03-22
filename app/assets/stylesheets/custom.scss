@@ -35,6 +35,10 @@ textarea {
   resize: vertical;
 }
 
+ol {
+  list-style: none;
+}
+
 .main-contents {
   margin: 100px 0;
 }
@@ -74,6 +78,17 @@ textarea {
   color: $active-C; //アウトラインのみのボタンのテキストの色
   border: 3px solid $active-C; //アウトラインのみのボタンの線の色
   border-color: $active-C;
+}
+
+/* form */
+
+input[type="radio"],input[type="checkbox"]{
+  position: relative;
+  top: 2px;
+}
+
+.form-check-label {
+  margin-right: 1em;
 }
 
 /* navbar */
@@ -274,5 +289,37 @@ textarea {
   }
   strong {
     display: block;
+  }
+}
+
+/* User Show */
+
+.posts {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid $default-bg;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .like, .like-count, .timestamp {
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
   }
 }
