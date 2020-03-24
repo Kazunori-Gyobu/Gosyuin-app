@@ -323,3 +323,12 @@ input[type="radio"],input[type="checkbox"]{
     margin-top: 5px;
   }
 }
+
+.stampbooks {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid $default-bg;
+  }
+}

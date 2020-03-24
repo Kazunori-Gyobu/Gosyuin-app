@@ -16,11 +16,16 @@ class StampbooksController < ApplicationController
   end
 
   def edit
-    
+    @stampbook = current_user.stampbooks.find_by(id: params[:id])
   end
 
   def update
-    
+    @stampbook = current_user.stampbooks.find_by(id: params[:id])
+    if @stampbook.update_attributes(stampbook_params)
+      
+    else
+      render 'edit'
+    end
   end
 
   def destroy

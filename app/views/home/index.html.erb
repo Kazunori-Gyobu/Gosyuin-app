@@ -20,7 +20,9 @@
     <div class="col-md-4">
         <h3>御朱印帳</h3>
         <%= link_to "御朱印帳を登録する", new_stampbook_path, class: "btn btn-primary" %>
-        <%= render @stampbooks %>
+        <ol class="stampbooks">
+            <%= render @stampbooks %>
+        </ol>
     </div>
 </div>
 

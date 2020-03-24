@@ -4,7 +4,7 @@ FactoryBot.define do
     given_date { "2020-03-21" }
     cover { "MyString" }
     remarks { "MyText" }
-    type { "" }
+    distinction { "" }
     user
   end
 end
