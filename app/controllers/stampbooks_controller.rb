@@ -35,6 +35,6 @@ class StampbooksController < ApplicationController
   private
 
   def stampbook_params
-    params.require(:stampbook).permit(:name, :given_date, :cover, :remarks, :type)
+    params.require(:stampbook).permit(:name, :given_date, :cover, :remove_cover, :remarks, :type)
   end
 end

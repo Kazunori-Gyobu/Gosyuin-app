@@ -1,18 +1,13 @@
-<li id="post">
-    <%= image_tag current_user.avatar.to_s, :class => "border mb-2 mx-auto", :size => "50x50", :alt =>"アバター" %>
-    <span class="user"><%= link_to post.user.name, post.user %></span>
-    <span class="content">
-        <%= post.content %>
-        <%= image_tag post.picture.url if post.picture? %>
-    </span>
-    <span class="like-count">いいね件数: <%= post.likes.count %></span>
-    <% if current_user.already_liked?(post) %>
-    <%= link_to 'いいねを取り消す', post_like_path(post_id: post.id, id: current_user.id), method: :delete, class: "like" %>
-    <% else %>
-    <span class="like"><%= link_to 'いいね', post_likes_path(post) %></span>
-    <% end %>
-    <span class="timestamp">
-        投稿 <%= time_ago_in_words(post.created_at) %>前
-        <%= link_to "削除", post, method: :delete, data: {confirm: "削除しますか？"} %>
-    </span>
+<li id="post-<%= post.id %>" data-post-id="<% post.id %>">
+  <%= image_tag current_user.avatar.to_s, :class => "border mb-2 mx-auto", :size => "50x50", :alt =>"アバター" %>
+  <span class="user"><%= link_to post.user.name, post.user %></span>
+  <span class="content">
+    <%= post.content %>
+    <%= image_tag post.picture.url if post.picture? %>
+  </span>
+  <span class="timestamp">
+    投稿 <%= time_ago_in_words(post.created_at) %>前
+    <%= link_to "削除", post, method: :delete, data: {confirm: "削除しますか？"} %>
+  </span>
+  <%= render "likes/like", post: post %>
 </li>

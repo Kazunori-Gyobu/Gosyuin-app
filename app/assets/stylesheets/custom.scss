@@ -313,14 +313,12 @@ input[type="radio"],input[type="checkbox"]{
       padding: 5px 0;
     }
   }
-  .like, .like-count, .timestamp {
+  .like-count, .timestamp {
     display: block;
     margin-left: 60px;
   }
-  .gravatar {
-    float: left;
-    margin-right: 10px;
-    margin-top: 5px;
+  .unlike-btn {
+    color: #e9adca;
   }
 }
 
