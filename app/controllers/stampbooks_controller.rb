@@ -22,14 +22,17 @@ class StampbooksController < ApplicationController
   def update
     @stampbook = current_user.stampbooks.find_by(id: params[:id])
     if @stampbook.update_attributes(stampbook_params)
-      
+      flash[:notice] = "御朱印帳の編集に成功しました"
+      redirect_to root_path
     else
       render 'edit'
     end
   end
 
   def destroy
-    
+    @stampbook.destroy
+    flash[:notice] = "御朱印帳を削除しました"
+    redirect_to request.referrer || root_url
   end
 
   private

@@ -16,12 +16,21 @@
     </div>
 
     <div class="form-group">
+      <% if @stampbook.cover.present? %>
+      <%= image_tag(@stampbook.cover.to_s, size: "300x200", class: "img_prev") %>
+      <% else %>
+      <%= image_tag "sample.jpg", id: :img_prev %>
+      <% end %>
       <%= f.label :cover, "御朱印帳の画像" %>
       <%= f.file_field :cover, class: 'form-control-file' %>
     </div>
 
     <div class="form-check">
-      <p><%= f.check_box :remove_cover, class: 'form-check-input' %>画像を削除する</p>
+      <p>
+        <label>
+          <%= f.check_box :remove_cover, class: 'form-check-input' %> 画像を削除する
+        </label>
+      </p>
     </div>
 
     <div class="form-check form-check-inline">
