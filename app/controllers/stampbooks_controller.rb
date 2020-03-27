@@ -1,5 +1,10 @@
 class StampbooksController < ApplicationController
   before_action :authenticate_user!
+  before_action :correct_user, only: :destroy
+
+  def show
+    @stampbook = Stampbook.find(params[:id])
+  end
 
   def new
     @stampbook = Stampbook.new
@@ -39,5 +44,10 @@ class StampbooksController < ApplicationController
 
   def stampbook_params
     params.require(:stampbook).permit(:name, :given_date, :cover, :remove_cover, :remarks, :type)
+  end
+
+  def correct_user
+    @stampbook = current_user.stampbooks.find_by(id: params[:id])
+    redirect_to root_url if @post.nil?
   end
 end
