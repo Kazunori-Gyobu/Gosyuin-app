@@ -22,7 +22,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  # process scale: [200, 300]
+  # process scale: [400, 300]
   #
   # def scale(width, height)
   #   # do something
@@ -44,4 +44,8 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  # Exifの回転情報を除去
+  process :fix_exif_rotation
+
 end

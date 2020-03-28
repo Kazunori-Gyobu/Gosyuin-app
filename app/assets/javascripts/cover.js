@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
   $fileField = $('#file')
 
   // 選択された画像を取得し表示

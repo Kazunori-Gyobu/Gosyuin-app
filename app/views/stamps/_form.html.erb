@@ -1,4 +1,4 @@
-<%= form_with model:[@stampbook, @stamp] do |f| %>
+<%= form_with model: @stamp do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 
 <div class="form-group">
@@ -20,7 +20,7 @@
   <%= f.label :photo, "御朱印の画像" %>
   <div id="img_field" onClick="$('#file').click()">
     <% if @stamp.photo.present? %>
-    <%= image_tag(@stamp.photo.to_s, size: "400x300") %>
+    <%= image_tag(@stamp.photo.to_s, size: "200x300", auto_orient: true) %>
     <% else %>
     <i class="fas fa-image"></i><i class="fas fa-file-upload add"></i>
     <% end %>

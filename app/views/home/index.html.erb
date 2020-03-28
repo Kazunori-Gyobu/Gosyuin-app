@@ -1,84 +1,89 @@
 <% if user_signed_in? %>
 <div class="row">
-    <aside class="col-md-4">
-        <section class="user_info">
-            <%= render 'shared/user_info' %>
-        </section>
-        <section class="stats">
-            <%= render 'shared/stats', user: @user %>
-        </section>
-        <section class="post_form">
-            <%= render 'shared/post_form' %>
-        </section>
-    </aside>
+  <aside class="col-sm-12 col-md-3">
+    <section class="user_info">
+      <%= render 'shared/user_info' %>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats', user: @user %>
+    </section>
+  </aside>
 
-    <div class="col-md-4">
-        <h3>タイムライン</h3>
-        <%= render 'shared/feed' %>
-    </div>
+  <div class="col-sm-6 col-md-3">
+    <h3>御朱印帳</h3>
+    <%= link_to "御朱印帳を登録する", new_stampbook_path, class: "btn btn-primary" %>
+    <ol class="stampbooks">
+      <%= render @stampbooks %>
+    </ol>
+  </div>
 
-    <div class="col-md-4">
-        <h3>御朱印帳</h3>
-        <%= link_to "御朱印帳を登録する", new_stampbook_path, class: "btn btn-primary" %>
-        <ol class="stampbooks">
-            <%= render @stampbooks %>
-        </ol>
-    </div>
+  <div class="col-sm-6 col-md-3">
+    <h3>御朱印</h3>
+    <%= link_to "御朱印を登録する", new_stamp_path, class: "btn btn-primary" %>
+    <ol class="stamps">
+      <%= render @stamps %>
+    </ol>
+  </div>
+
+  <div class="col-sm-12 col-md-3">
+    <h3>タイムライン</h3>
+    <%= render 'shared/feed' %>
+  </div>
 </div>
 
 <% else %>
 
 <!-- ======= Hello Section ======= -->
 <section id="hello">
-    <div class="hello-container">
-        <h1>ようこそ御朱印管理アプリへ</h1>
-        <h2>
-            御朱印を思い出と共に記録しましょう。</h2>
-        <a href="#about" class="btn-get-started scrollto">機能紹介</a>
-        <%= link_to "新規登録", new_user_registration_path, class: "btn-get-started scrollto" %>
-    </div>
+  <div class="hello-container">
+    <h1>ようこそ御朱印管理アプリへ</h1>
+    <h2>
+      御朱印を思い出と共に記録しましょう。</h2>
+    <a href="#about" class="btn-get-started scrollto">機能紹介</a>
+    <%= link_to "新規登録", new_user_registration_path, class: "btn-get-started scrollto" %>
+  </div>
 </section>
 <!-- #hero -->
 
 <main id="main">
 
-    <!-- ======= About Us Section ======= -->
+  <!-- ======= About Us Section ======= -->
 
-    <section id="about" class="about">
-        <div class="container">
+  <section id="about" class="about">
+    <div class="container">
 
-            <div class="section-title">
-                <h2>このアプリで出来ること</h2>
-            </div>
+      <div class="section-title">
+        <h2>このアプリで出来ること</h2>
+      </div>
 
-            <div class="row">
+      <div class="row">
 
-                <div class="col-lg-6 order-1 order-lg-2">
-                    <%= image_tag("about-gosyuin.jpg", class: "img-fluid", alt: "御朱印帳", ) %>
-                </div>
-
-                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1">
-                    <h3>御朱印は御朱印帳ごとに登録出来るので、どこにあるかがすぐにわかります。</h3>
-                    <p class="font-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore
-                        magna aliqua.
-                    </p>
-                    <ul>
-                        <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                        <li><i class="icofont-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                        <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                            aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
-                            pariatur.</li>
-                    </ul>
-                    <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum
-                    </p>
-                </div>
-            </div>
+        <div class="col-lg-6 order-1 order-lg-2">
+          <%= image_tag("about-gosyuin.jpg", class: "img-fluid", alt: "御朱印帳", ) %>
         </div>
+
+        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1">
+          <h3>御朱印は御朱印帳ごとに登録出来るので、どこにあるかがすぐにわかります。</h3>
+          <p class="font-italic">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna aliqua.
+          </p>
+          <ul>
+            <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+            <li><i class="icofont-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+            <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+              aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
+              pariatur.</li>
+          </ul>
+          <p>
+            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+            voluptate
+            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum
+          </p>
+        </div>
+      </div>
+    </div>
 </main>
 <% end %>

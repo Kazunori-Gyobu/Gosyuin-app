@@ -9,13 +9,12 @@ class StampsController < ApplicationController
   end
 
   def new
-    @stampbook = Stampbook.find(params[:stampbook_id])
     @stampbooks = Stampbook.all
     @stamp = Stamp.new
   end
 
   def create
-    @stamp = current_user.stamps.build(stamp_params)
+    @stamp = Stamp.new(stamp_params)
     if @stamp.save
       flash[:success] = "御朱印が登録されました！"
       redirect_to root_url
@@ -25,7 +24,6 @@ class StampsController < ApplicationController
   end
 
   def edit
-    @stampbook = Stampbook.find(params[:stampbook_id])
     @stampbooks = Stampbook.all
     @stamp = Stamp.find(params[:id])
   end
@@ -41,6 +39,6 @@ class StampsController < ApplicationController
   private
 
   def stamp_params
-    params.require(:stamp).permit(:name, :given_date, :photo, :remove_photo, :remarks, :type)
+    params.require(:stamp).permit(:name, :given_date, :photo, :remove_photo, :remarks, :distinction, :stampbook_id)
   end
 end

@@ -1,6 +1,6 @@
 <li id="stamp-<%= stamp.id %>">
   <span class="stamp-name"><%= link_to stamp.name, stamp %></span>
-  <span class="stamp-cover"><%= image_tag stamp.photo.to_s, size: "300x200" %></span>
+  <span class="stamp-photo"><%= image_tag stamp.photo.to_s, size: "200x300" %></span>
   <span><%= link_to "編集", edit_stamp_path(stamp) %></span>
   <span><%= link_to "削除", stamp, method: :delete, data: { confirm: "本当に削除しますか？" } %></span>
 </li>
