@@ -35,6 +35,14 @@ textarea {
   resize: vertical;
 }
 
+ol {
+  list-style: none;
+}
+
+.hidden {
+  display: none;
+}
+
 .main-contents {
   margin: 100px 0;
 }
@@ -74,6 +82,17 @@ textarea {
   color: $active-C; //アウトラインのみのボタンのテキストの色
   border: 3px solid $active-C; //アウトラインのみのボタンの線の色
   border-color: $active-C;
+}
+
+/* form */
+
+input[type="radio"],input[type="checkbox"]{
+  position: relative;
+  top: 2px;
+}
+
+.form-check-label {
+  margin-right: 1em;
 }
 
 /* navbar */
@@ -275,4 +294,102 @@ textarea {
   strong {
     display: block;
   }
+}
+
+/* User Show */
+
+.posts {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid $default-bg;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .like-count, .timestamp {
+    display: block;
+    margin-left: 60px;
+  }
+  .unlike-btn {
+    color: #e9adca;
+  }
+}
+
+.stampbooks {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid $default-bg;
+  }
+}
+
+/* Stampbooks */
+
+.stampbook-cover img {
+  margin: 5px;
+  width: 100%;
+  height: auto;
+  border: 5px solid $default-C;
+  border-radius: 5px;
+}
+
+#img_field {
+  font-size: 15px;
+  margin-top: 10px;
+  padding: 5px 8px;
+  border: solid 5px $default-C;
+  color: #666;
+  position: relative;
+  padding: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 400px;
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: 0.3s ease-out;
+  text-align: center;
+}
+ 
+#img_field i {
+  font-size: 100px;
+  color: #aaa;
+  line-height: 300px;
+  transition: 0.3s ease-out;
+}
+ 
+#img_field i.add {
+  display: none;
+  font-size: 50px;
+  position: absolute;
+  top: -100px;
+  right: 15px;
+}
+ 
+#img_field:hover {
+  background-color: $default-bg;
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+}
+ 
+#img_field:hover i {
+  transition: 0.3s ease-out;
+  display: block;
+  color: #fff;
 }
