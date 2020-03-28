@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+  resources :stamps
   resources :posts, only: [:index, :new, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :stampbooks, only: [:show, :new, :create, :edit, :update, :destroy]
