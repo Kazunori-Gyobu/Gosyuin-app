@@ -18,3 +18,4 @@ RUN bundle install -j4
 COPY . $APP_ROOT
 
 RUN mkdir -p tmp/sockets
+RUN mkdir -p tmp/pids

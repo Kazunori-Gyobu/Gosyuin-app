@@ -62,4 +62,29 @@ RSpec.describe User, type: :model do
       expect(user.errors[:password_confirmation]).to include('とパスワードの入力が一致しません') 
     end
   end
+
+  describe "タイムライン" do
+    let!(:user1) { FactoryBot.create(:user, :with_posts) }
+    let!(:user2) { FactoryBot.create(:user, :with_posts) }
+    let!(:user3) { FactoryBot.create(:user, :with_posts) }
+    let!(:active) { user1.active_relationships.create(followed_id: user2.id) }
+
+    it "フォロー中のユーザーの投稿があること" do
+      user1.posts.each do |post_following|
+      expect(user1.feed).to include(post_following)
+      end
+    end
+
+    it "自分の投稿があること" do
+      user1.posts.each do |post_self|
+      expect(user1.feed).to include(post_self)
+      end
+    end
+
+    it "フォロー外のユーザーの投稿がないこと" do
+      user3.posts.each do |post_unfollowed|
+      expect(user1.feed).not_to include(post_unfollowed)
+      end
+    end
+  end
 end
