@@ -1,5 +1,10 @@
-<%= form_for(@stamp) do |f| %>
+<%= form_with model:[@stampbook, @stamp] do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
+
+<div class="form-group">
+  <%= f.label :stampbook_id, "登録する御朱印帳" %>
+  <%= f.collection_select(:stampbook_id, @stampbooks, :id, :name, {prompt: "御朱印帳を選んでください"}, {class: 'form-control'}) %>
+</div>
 
 <div class="form-group">
   <%= f.label :name, "御朱印名" %>

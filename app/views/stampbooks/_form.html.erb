@@ -1,4 +1,4 @@
-<%= form_for(@stampbook) do |f| %>
+<%= form_with model: @stampbook do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 
 <div class="form-group">
