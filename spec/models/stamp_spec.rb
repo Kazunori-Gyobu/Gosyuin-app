@@ -12,11 +12,13 @@ RSpec.describe Stamp, type: :model do
   it "名前がなければ無効なこと" do
     stamp.name = ""
     expect(stamp).to_not be_valid
+    expect(stamp.errors[:name]).to include('を入力してください') 
   end
 
   it "stampbook_idがなければ無効なこと" do
     stamp.stampbook_id = nil
     expect(stamp).to_not be_valid
+    expect(stamp.errors[:stampbook_id]).to include('を入力してください') 
   end
 
   it "御朱印帳削除で共に削除されること" do

@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    flash[:notice] = "記事を削除しました"
+    flash[:alert] = "記事を削除しました"
     redirect_to request.referrer || current_user
   end
 

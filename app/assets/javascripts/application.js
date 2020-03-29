@@ -12,6 +12,7 @@
 //
 //= require jquery3
 //= require rails-ujs
+//= require exif
 //= require popper
 //= require bootstrap
 //= require activestorage

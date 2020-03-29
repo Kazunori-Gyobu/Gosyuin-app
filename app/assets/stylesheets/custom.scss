@@ -127,6 +127,9 @@ input[type="radio"],input[type="checkbox"]{
   .alert {
     background-color: red;
   }
+  .success {
+    background-color: #70b9b0;
+  }
 }
 
 /* hello section */
@@ -413,7 +416,7 @@ input[type="radio"],input[type="checkbox"]{
   color: #DD4827;
 }
 
-#img_field-s {
+#img_photo {
   font-size: 15px;
   margin-top: 10px;
   padding: 5px 8px;
@@ -435,14 +438,14 @@ input[type="radio"],input[type="checkbox"]{
   text-align: center;
 }
  
-#img_field-s i {
+#img_photo i {
   font-size: 100px;
   color: #aaa;
   line-height: 300px;
   transition: 0.3s ease-out;
 }
  
-#img_field-s i.add {
+#img_photo i.add {
   display: none;
   font-size: 50px;
   position: absolute;
@@ -450,13 +453,13 @@ input[type="radio"],input[type="checkbox"]{
   right: 15px;
 }
  
-#img_field-s:hover {
+#img_photo:hover {
   background-color: $default-bg;
   transition: 0.3s ease-out;
   opacity: 0.9;
 }
  
-#img_field-s:hover i {
+#img_photo:hover i {
   transition: 0.3s ease-out;
   display: block;
   color: #fff;

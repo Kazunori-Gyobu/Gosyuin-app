@@ -1,4 +1,5 @@
 class StampsController < ApplicationController
+  before_action :set_select_collections, only: [:new, :create, :edit, :update]
 
   def index
     @stamps = Stamp.page(params[:page]).per(15)
@@ -10,7 +11,6 @@ class StampsController < ApplicationController
   end
 
   def new
-    @stampbooks = Stampbook.all
     @stamp = Stamp.new
   end
 
@@ -41,5 +41,9 @@ class StampsController < ApplicationController
 
   def stamp_params
     params.require(:stamp).permit(:name, :given_date, :photo, :remove_photo, :remarks, :distinction, :stampbook_id)
+  end
+
+  def set_select_collections
+    @stampbooks = current_user.stampbooks
   end
 end

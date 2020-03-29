@@ -123,6 +123,7 @@ GEM
     erubi (1.9.0)
     excon (0.72.0)
     execjs (2.7.0)
+    exifjs-rails (1.0.0.beta1)
     factory_bot (5.1.1)
       activesupport (>= 4.2.0)
     factory_bot_rails (5.1.1)
@@ -370,6 +371,7 @@ DEPENDENCIES
   devise-i18n
   devise-i18n-views
   dotenv-rails
+  exifjs-rails
   factory_bot_rails
   faker
   faker-japanese

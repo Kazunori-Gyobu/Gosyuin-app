@@ -3,9 +3,13 @@ $(document).on('turbolinks:load', function () {
 
   // 選択された画像を取得し表示
   $($fileField).on('change', $fileField, function (e) {
-    file = e.target.files[0]
-    reader = new FileReader(),
-      $preview = $("#img_field-s");
+    file = e.target.files[0];
+    var orientation;
+    reader = new FileReader();
+    image = new Image();
+    $preview = $("#img_photo");
+
+
 
     reader.onload = (function (file) {
       return function (e) {
