@@ -19,6 +19,7 @@
 $default-C:#58495d;
 $active-C:#e9adca;
 $default-bg:#f2e1e6;
+$accent-C: #dd4827;
 
 body {
   display: block;
@@ -394,6 +395,10 @@ input[type="radio"],input[type="checkbox"]{
   color: #fff;
 }
 
+.stampbook-color {
+  color: $default-C;
+}
+
 /* Stamps */
 
 .stamp-photo img {
@@ -402,4 +407,57 @@ input[type="radio"],input[type="checkbox"]{
   height: auto;
   border: 5px solid $default-C;
   border-radius: 5px;
+}
+
+.stamp-color {
+  color: #DD4827;
+}
+
+#img_field-s {
+  font-size: 15px;
+  margin-top: 10px;
+  padding: 5px 8px;
+  border: solid 5px $default-C;
+  color: #666;
+  position: relative;
+  padding: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 300px;
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: 0.3s ease-out;
+  text-align: center;
+}
+ 
+#img_field-s i {
+  font-size: 100px;
+  color: #aaa;
+  line-height: 300px;
+  transition: 0.3s ease-out;
+}
+ 
+#img_field-s i.add {
+  display: none;
+  font-size: 50px;
+  position: absolute;
+  top: -100px;
+  right: 15px;
+}
+ 
+#img_field-s:hover {
+  background-color: $default-bg;
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+}
+ 
+#img_field-s:hover i {
+  transition: 0.3s ease-out;
+  display: block;
+  color: #fff;
 }

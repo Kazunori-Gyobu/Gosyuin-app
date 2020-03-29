@@ -1,11 +1,12 @@
 class StampsController < ApplicationController
 
   def index
-    
+    @stamps = Stamp.page(params[:page]).per(15)
+
   end
   
   def show
-    
+    @stamp = Stamp.find(params[:id])
   end
 
   def new

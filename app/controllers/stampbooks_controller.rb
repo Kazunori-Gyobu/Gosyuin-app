@@ -2,6 +2,11 @@ class StampbooksController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_user, only: :destroy
 
+  def index
+    @stampbooks = Stampbook.page(params[:page]).per(15)
+
+  end
+
   def show
     @stampbook = Stampbook.find(params[:id])
   end
