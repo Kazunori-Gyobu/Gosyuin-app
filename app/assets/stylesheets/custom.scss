@@ -272,6 +272,12 @@ input[type="radio"],input[type="checkbox"]{
   }
 }
 
+/* user_info */
+
+.user-info {
+  text-align: center;
+}
+
 .avatar {
   float: left;
   margin-right: 10px;
@@ -279,10 +285,11 @@ input[type="radio"],input[type="checkbox"]{
 
 .stats {
   overflow: auto;
-  margin-top: 0;
+  margin: 0　auto;
   padding: 0;
+  text-align: center;
   a {
-    float: left;
+    display: inline-block;
     padding: 0 10px;
     border-left: 1px solid $default-bg;
     color: gray;
@@ -292,7 +299,7 @@ input[type="radio"],input[type="checkbox"]{
     }
     &:hover {
       text-decoration: none;
-      color: blue;
+      color: $default-C;
     }
   }
   strong {
