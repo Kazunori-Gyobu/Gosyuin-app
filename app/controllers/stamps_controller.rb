@@ -48,7 +48,7 @@ class StampsController < ApplicationController
   private
 
   def stamp_params
-    params.require(:stamp).permit(:name, :given_date, :photo, :remove_photo, :remarks, :distinction, :stampbook_id)
+    params.require(:stamp).permit(:name, :given_date, :photo, :remove_photo, :photo_cache, :remarks, :distinction, :stampbook_id)
   end
 
   def correct_user

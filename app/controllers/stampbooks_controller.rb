@@ -48,7 +48,7 @@ class StampbooksController < ApplicationController
   private
 
   def stampbook_params
-    params.require(:stampbook).permit(:name, :given_date, :cover, :remove_cover, :remarks, :distinction)
+    params.require(:stampbook).permit(:name, :given_date, :cover, :remove_cover, :cover_cache, :remarks, :distinction)
   end
 
   def correct_user

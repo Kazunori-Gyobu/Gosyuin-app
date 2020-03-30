@@ -26,6 +26,7 @@
     <% end %>
   </div>
   <%= f.file_field :photo, class: 'form-control-file', style: "display:none", id: "file" %>
+  <%= f.hidden_field :photo_cache %>
 </div>
 
 <div class="form-check">
