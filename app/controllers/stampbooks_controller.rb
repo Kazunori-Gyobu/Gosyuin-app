@@ -53,6 +53,6 @@ class StampbooksController < ApplicationController
 
   def correct_user
     @stampbook = current_user.stampbooks.find_by(id: params[:id])
-    redirect_to root_url if @post.nil?
+    redirect_to root_url if @stampbook.nil?
   end
 end

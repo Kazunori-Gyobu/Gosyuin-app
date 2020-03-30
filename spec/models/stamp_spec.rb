@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Stamp, type: :model do
   let!(:user) { FactoryBot.create(:user) }
   let!(:stampbook) { FactoryBot.create(:stampbook, user_id: user.id) }
-  let!(:stamp) { FactoryBot.create(:stamp, stampbook_id: stampbook.id) }
+  let!(:stamp) { FactoryBot.create(:stamp, :with_photo, stampbook_id: stampbook.id) }
 
   it "御朱印が有効であること" do
     expect(stamp).to be_valid

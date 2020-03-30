@@ -20,46 +20,13 @@ RSpec.describe "Stamps", type: :request do
   end
 
   describe "Post #create" do
-    
-    before do
-      sign_in user
-      get new_stamp_path
-    end
 
-    it "御朱印名がなければ登録できないこと" do
-      expect {
-        post stamps_path, params: { stamp: { name: "" } }
-      }.not_to change{ user.stamps.count }
-    end
-
-    it "収録される御朱印帳名がなければ登録できないこと" do
-      expect {
-        post stamps_path, params: { stamp: { stampbook_id: nil } }
-      }.not_to change{ user.stamps.count }
-    end
-  end
-
-  describe "Get #edit" do
-
-    it "ログインしていなければリダイレクトされること" do
-      get edit_stamp_path(stamp)
-      expect(response).to redirect_to new_user_session_path
-    end
-
-    it "editリクエストが成功すること" do
-      sign_in user
-      get edit_stamp_path(stamp)
-      expect(response).to be_successful
-      expect(response).to have_http_status(200)
-    end
-  end
-
-  describe "Post #create" do
     let(:photo_path) { File.join(Rails.root, 'spec/fixtures/sample.jpeg') }
     let(:photo) { Rack::Test::UploadedFile.new(photo_path) }
 
     before do
       sign_in user
+      get new_stamp_path
     end
 
     it "必要事項が入力されていれば登録できること" do
@@ -69,6 +36,12 @@ RSpec.describe "Stamps", type: :request do
           stampbook_id: stampbook.id
           }}
         }.to change { user.stamps.count }.by(1)
+    end
+
+    it "御朱印名がなければ登録できないこと" do
+      expect {
+        post stamps_path, params: { stamp: { name: "" } }
+      }.not_to change{ user.stamps.count }
     end
 
     it "画像がなければ登録できないこと" do
@@ -87,6 +60,21 @@ RSpec.describe "Stamps", type: :request do
           stampbook_id: ""
           }}
         }.not_to change { user.stamps.count }
+    end
+  end
+
+  describe "Get #edit" do
+
+    it "ログインしていなければリダイレクトされること" do
+      get edit_stamp_path(stamp)
+      expect(response).to redirect_to new_user_session_path
+    end
+
+    it "editリクエストが成功すること" do
+      sign_in user
+      get edit_stamp_path(stamp)
+      expect(response).to be_successful
+      expect(response).to have_http_status(200)
     end
   end
 end
