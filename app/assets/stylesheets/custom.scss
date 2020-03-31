@@ -23,8 +23,13 @@ $accent-C: #dd4827;
 
 body {
   display: block;
-  // padding-top: 4.5rem;
+  padding-top: 55px;
   // margin-top: 100px;
+}
+
+aside {
+  padding: 10px 0;
+  background-color: $active-C;
 }
 
 section {
@@ -56,35 +61,6 @@ ol {
   margin-bottom: 10px;
 }
 
-/* btn */
-
-.btn-primary {
-  color: #fff; //ボタンのテキストの色
-  background: $active-C; //ボタンの背景色
-  border-color: $active-C;
-}
-
-.btn-primary:hover, .btn-primary:focus, 
-.btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
-.btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
-.open > .dropdown-toggle.btn-primary, 
-.open > .dropdown-toggle.btn-primary:hover,
-.open > .dropdown-toggle.btn-primary:focus, 
-.open > .dropdown-toggle.btn-primary.focus,
-.btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
-.btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
-.btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
-  color: #fff; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
-  background: $default-C; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
-  border-color: $default-C;
-}
-
-.btn-primary.outline {
-  color: $active-C; //アウトラインのみのボタンのテキストの色
-  border: 3px solid $active-C; //アウトラインのみのボタンの線の色
-  border-color: $active-C;
-}
-
 /* form */
 
 input[type="radio"],input[type="checkbox"]{
@@ -97,21 +73,18 @@ input[type="radio"],input[type="checkbox"]{
 }
 
 /* navbar */
-
-.navbar-light .navbar-nav .nav-link {
+.navbar-custom {
   color: #fff;
 }
 
-.navbar-light > a:hover {
-  color: gray;
-}
 
-.navbar .navbar-brand {
+
+.navbar-brand {
   font-size: 2em;
   font-weight: bold;
   color: #fff;
   .nav-link > a:hover {
-    color: gray;
+    color: #fff;
   }
   }
 
@@ -119,8 +92,10 @@ input[type="radio"],input[type="checkbox"]{
 #flash {
   color: #343a40;
   text-align: center;
-  margin: 10px 0;
+  width: 100%;
+  padding: 10px 0;
   font-size: 1.5em;
+  background-color: $active-C;
   .notice {
     background-color: $default-bg;
   }
@@ -291,12 +266,6 @@ input[type="radio"],input[type="checkbox"]{
   a {
     display: inline-block;
     padding: 0 10px;
-    border-left: 1px solid $default-bg;
-    color: gray;
-    &:first-child {
-      padding-left: 0;
-      border: 0;
-    }
     &:hover {
       text-decoration: none;
       color: $default-C;

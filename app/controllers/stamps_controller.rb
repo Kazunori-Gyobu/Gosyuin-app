@@ -1,5 +1,6 @@
 class StampsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :correct_user, only: :destroy
   before_action :set_select_collections, only: [:new, :create, :edit, :update]
 
   def index
@@ -53,7 +54,7 @@ class StampsController < ApplicationController
 
   def correct_user
     @stamp = current_user.stamps.find_by(id: params[:id])
-    redirect_to root_url if @post.nil?
+    redirect_to root_url if @pstamp.nil?
   end
 
   def set_select_collections

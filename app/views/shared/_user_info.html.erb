@@ -1,4 +1,2 @@
 <%= image_tag current_user.avatar.to_s, :class => "float-center border mb-2 mx-auto", :size => "100x100", :alt =>"アバター" %>
 <h2><%= current_user.name %></h2>
-<span><%= link_to "マイプロフィール", current_user %></span>
-<span><%= pluralize(current_user.posts.count, "記事") %></span>
