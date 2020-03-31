@@ -97,3 +97,37 @@ $dropDown       : true;
   .dropdown-item.active {
     color: $colHighlight;
     background-color: $bgHighlight; }}
+
+    $default-C:#58495d;
+    $active-C:#e9adca;
+    $default-bg:#f2e1e6;
+    $accent-C: #dd4827;
+    
+    /* btn */
+    
+    .btn-primary {
+      color: #fff; //ボタンのテキストの色
+      background: $active-C; //ボタンの背景色
+      border-color: $active-C;
+    }
+    
+    .btn-primary:hover, .btn-primary:focus, 
+    .btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
+    .btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
+    .open > .dropdown-toggle.btn-primary, 
+    .open > .dropdown-toggle.btn-primary:hover,
+    .open > .dropdown-toggle.btn-primary:focus, 
+    .open > .dropdown-toggle.btn-primary.focus,
+    .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
+    .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
+    .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
+      color: $default-C; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+      background: $default-bg; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+      border-color: $default-bg;
+    }
+    
+    .btn-primary.outline {
+      color: $active-C; //アウトラインのみのボタンのテキストの色
+      border: 3px solid $active-C; //アウトラインのみのボタンの線の色
+      border-color: $active-C;
+    }
