@@ -1,0 +1,39 @@
+# モデルは全て activerecord 以下に記述する。
+# これにより、User.model_name.human / User.human_attribute_name({attr_name})で使用可能。
+
+ja:
+  activerecord:
+    models:
+      # view側： User.model_name.human => "ユーザ" / t("activerecord.models.user")と同じ
+      user: ユーザー 
+      board: 掲示板
+    # model毎に定義したいattributesを記述
+    attributes:
+        user:
+          id: ID
+          # view側： User.human_attribute_name :name => "名前" /　t("activerecord.attributes.user.name")と同じ
+          first_name: 名前
+          last_name: 姓
+          email: メールアドレス
+          file: プロフィール画像
+          crypted_password: パスワード
+        stampbook:
+          stampbook: 御朱印帳
+          name: 御朱印帳名
+          stamp: 御朱印
+          given_date: 取得日
+          remarks: 説明文
+          distinction: 神社か寺院か
+          cover: 御朱印帳の画像
+        stamp:
+          stamp: 御朱印
+          name: 御朱印名
+          stampbook: 御朱印帳
+          given_date: 取得日
+          remarks: 説明文
+          distinction: 神社か寺院か
+          photo: 御朱印の画像
+  # 全てのmodelで共通して使用するattributesを定義
+  attributes:
+    created_at: 作成日
+    updated_at: 更新日

@@ -1,0 +1,17 @@
+<% provide :title, '御朱印帳一覧' %>
+<div class="container">
+  <h2><i class="fas fa-book stampbook-color"></i> みんなの御朱印帳</h2>
+  <ul class="stampbooks">
+    <% @stampbooks.each do |stampbook| %>
+    <li>
+      <span class="stampbook-name"><%= link_to stampbook.name, stampbook %></span><br />
+      <%= image_tag stampbook.cover.to_s, class: "stampbook", size:  "300x200" %>
+      <span class="stampbook-name"><i class="fas fa-book stampbook-color"></i> <%= link_to stampbook.name, stampbook %></span>
+      <span>取得日<%= stampbook.given_date %></span>
+      <span>メモ<%= stampbook.remarks %></span>
+      <span>収録御朱印数<%= stampbook.stamps.count %></span>
+    </li>
+    <% end %>
+  </ul>
+  <%= paginate @stampbooks %>
+</div>

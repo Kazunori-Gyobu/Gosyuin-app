@@ -13,7 +13,7 @@ RSpec.describe "Follow", type: :system do
 
     it "フォロー解除ボタンが有効なこと" do
       visit user_path(user)
-      click_link "following"
+      click_link "フォロー"
       expect(current_path).to eq following_user_path(user)
       expect(page).to have_content "山本"
 

@@ -4,6 +4,7 @@ class HomeController < ApplicationController
       @post = current_user.posts.build
       @feed_items = current_user.feed.page(params[:page])
       @stampbooks = current_user.stampbooks.page(params[:page])
+      @stamps = current_user.stamps.page(params[:page])
     end
   end
 end
