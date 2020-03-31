@@ -10,6 +10,9 @@ class StampsController < ApplicationController
   
   def show
     @stamp = Stamp.find(params[:id])
+    @user = @stamp.user
+    @stamps = @stamp.user.stamps.page(params[:page])
+    @stampbooks = @user.stampbooks.page(params[:page])
   end
 
   def new

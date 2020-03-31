@@ -1,12 +1,35 @@
 <% provide :title, @stamp.name %>
-<div class="card col-sm-10 mx-auto mt-5 px-0">
-  <span class="stamp-name"><i class="fas fa-stamp stamp-color"></i> <%= @stamp.name %></span>
-  <span class="stampbook-name"><i class="fas fa-book stampbook-color"></i> <%= link_to @stamp.stampbook.name, @stamp.stampbook %></span>
-  <span class="stamp"><%= image_tag @stamp.photo.to_s, size: "300x400" %></span>
-  <span>取得日<%= @stamp.given_date %></span>
-  <span>メモ<%= @stamp.remarks %></span>
-  <span><%= link_to "編集", edit_stamp_path(@stamp) %></span>
-  <% if current_user?(@stamp.user) %>
-  <span><%= link_to "削除", @stamp, method: :delete, data: { confirm: "本当に削除しますか？" } %></span>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <span class="stamp-name"><i class="fas fa-stamp stamp-color"></i> <%= @stamp.name %></span>
+      <span class="stampbook-name"><i class="fas fa-book stampbook-color"></i> <%= link_to @stamp.stampbook.name, @stamp.stampbook %></span>
+      <span class="stamp-photo"><%= image_tag @stamp.photo.to_s, size: "300x400" %></span>
+      <span>取得日<%= @stamp.given_date %></span>
+      <span>メモ<%= @stamp.remarks %></span>
+      <span><%= link_to "編集", edit_stamp_path(@stamp) %></span>
+      <% if current_user?(@stamp.user) %>
+      <span><%= link_to "削除", @stamp, method: :delete, data: { confirm: "本当に削除しますか？" } %></span>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <span><%= @stamp.user.name %> さんの御朱印</span>
+      <ol class="stamps">
+        <%= render @stamps %>
+      </ol>
+    </div>
+    <div class="col-md-4">
+      <span><%= @stamp.user.name %> さんの御朱印帳</span>
+      <ol class="stamps">
+        <% @stampbooks.each do |stampbook| %>
+        <li>
+          <span class="stampbook-name"><i class="fas fa-book stampbook-color"></i> <%= link_to stampbook.name, stampbook %></span>
+          <span>取得日<%= stampbook.given_date %></span>
+          <span>メモ<%= stampbook.remarks %></span>
+          <span>収録御朱印数<%= stampbook.stamps.count %></span>
+        </li>
+        <% end %>
+      </ol>
+    </div>
+  </div>
 </div>

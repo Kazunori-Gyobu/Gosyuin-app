@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   before_action :correct_user, only: :destroy
 
   def index
+    @posts = Post.page(params[:page]).per(15)
+    @feed_items = current_user.feed.page(params[:page])
   end
 
   def new

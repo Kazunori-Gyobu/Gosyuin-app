@@ -41,6 +41,18 @@ textarea {
   resize: vertical;
 }
 
+.h1 {
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
+a {
+  color: $default-C;
+  &:hover {
+    color: $default-bg;
+  }
+}
+
 ol {
   list-style: none;
 }
@@ -235,6 +247,7 @@ input[type="radio"],input[type="checkbox"]{
 
 .user-info {
   text-align: center;
+  color: $default-C;
 }
 
 .avatar {
@@ -252,7 +265,7 @@ input[type="radio"],input[type="checkbox"]{
     padding: 0 10px;
     &:hover {
       text-decoration: none;
-      color: $default-C;
+      color: $default-bg;
     }
   }
   strong {
