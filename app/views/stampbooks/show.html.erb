@@ -1,5 +1,5 @@
-<% provide :title, @stampbook.name %>
 <div class="container">
+  <% unless @stampbook.nil? %>
   <div class="row">
     <div class="col-md-6">
       <span class="stampbook-name"><%= @stampbook.name %></span>
@@ -15,5 +15,8 @@
         <%= render @stampbooks %>
       </ol>
     </div>
+    <% else %>
+    <p><%= @user.name %>さんままだ御朱印帳を登録されていません</p>
+    <% end %>
   </div>
 </div>

@@ -20,7 +20,11 @@ Rails.application.routes.draw do
   end
   resources :posts, only: [:index, :new, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
-  resources :stampbooks
+  resources :stampbooks do
+    collection do
+      get :owners
+    end
+  end
   resources :stamps
   
   resources :likes, only: [:create, :destroy]

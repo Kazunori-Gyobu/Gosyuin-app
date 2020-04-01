@@ -89,16 +89,19 @@ input[type="radio"],input[type="checkbox"]{
   color: #343a40;
   text-align: center;
   width: 100%;
-  padding: 10px 0;
   font-size: 1.5em;
   background-color: $active-C;
+  padding: 10px 0;
   .notice {
+    padding: -10px 0;
     background-color: $default-bg;
   }
   .alert {
+    padding: -10px 0;
     background-color: red;
   }
   .success {
+    padding: -10px 0;
     background-color: #70b9b0;
   }
 }
