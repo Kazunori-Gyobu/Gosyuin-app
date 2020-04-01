@@ -1,5 +1,5 @@
-<% provide :title, @stamp.name %>
 <div class="container">
+  <% unless @stamp.nil? %>
   <div class="row">
     <div class="col-md-4">
       <span class="stamp-name"><i class="fas fa-stamp stamp-color"></i> <%= @stamp.name %></span>
@@ -31,5 +31,8 @@
         <% end %>
       </ol>
     </div>
+    <% else %>
+    <p><%= @user.name %>さんままだ御朱印を登録されていません</p>
+    <% end %>
   </div>
 </div>

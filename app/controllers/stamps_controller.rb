@@ -49,6 +49,14 @@ class StampsController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
+  def owners
+    @user = User.find(params[:id])
+    @stamp = @user.stamps.first
+    @stamps = @user.stamps.page(params[:page])
+    @stampbooks = @user.stampbooks
+    render 'show'
+  end
+
   private
 
   def stamp_params

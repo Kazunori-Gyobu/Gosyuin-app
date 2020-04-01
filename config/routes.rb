@@ -25,7 +25,11 @@ Rails.application.routes.draw do
       get :owners
     end
   end
-  resources :stamps
+  resources :stamps do
+    collection do
+      get :owners
+    end
+  end
   
   resources :likes, only: [:create, :destroy]
 end
