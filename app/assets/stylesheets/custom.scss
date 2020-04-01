@@ -27,9 +27,12 @@ body {
   // margin-top: 100px;
 }
 
-aside {
-  padding: 10px 0;
+.aside {
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px;
   background-color: $active-C;
+  text-align: center;
 }
 
 section {
@@ -106,116 +109,6 @@ input[type="radio"],input[type="checkbox"]{
   }
 }
 
-/* hello section */
-
-#hello {
-  width: 100%;
-  height: 75vh;
-  background: image-url('/assets/kasugataisya.jpg') top center;
-  background-size: cover;
-  position: relative;
-  margin-bottom: -80px;
-}
-
-#hello:before {
-  content: "";
-  background: rgba(88, 73, 93, 0.75);
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-#hello .hello-container {
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  padding-top: 80px;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-#hello h1 {
-  margin: 0 0 10px 0;
-  font-size: 48px;
-  font-weight: 300;
-  line-height: 56px;
-  color: #fff;
-}
-
-#hello h2 {
-  color: #eee;
-  margin-bottom: 70px;
-  font-size: 20px;
-  font-weight: 300;
-}
-
-#hello .btn-get-started {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  letter-spacing: 1px;
-  display: inline-block;
-  margin-bottom: 10px;
-  padding: 8px 28px 10px 28px;
-  border-radius: 50px;
-  transition: 0.5s;
-  border: 1px solid #fff;
-  color: #fff;
-}
-
-#hello .btn-get-started:hover {
-  background: #fff;
-  color: #70b9b0;
-  border: 1px solid #70b9b0;
-}
-
-@media (min-width: 1024px) {
-  #hero {
-    background-attachment: fixed;
-  }
-}
-
-@media (max-width: 768px) {
-  #hero h1 {
-    font-size: 28px;
-    line-height: 36px;
-  }
-  #hero h2 {
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 30px;
-  }
-}
-
-
-.section-bg {
-  background-color: #f2f9f8;
-}
-
-.section-title {
-  text-align: center;
-  padding-bottom: 30px;
-}
-
-.section-title h2 {
-  font-size: 32px;
-  font-weight: 300;
-  margin: 30px 0;
-  padding-bottom: 0;
-  color: #555;
-}
-
-.section-title p {
-  margin-bottom: 0;
-}
-
 /* アカウント情報 */
 
 .circle-avatar {
@@ -249,7 +142,6 @@ input[type="radio"],input[type="checkbox"]{
 /* user_info */
 
 .user-info {
-  text-align: center;
   color: $default-C;
 }
 
@@ -261,7 +153,7 @@ input[type="radio"],input[type="checkbox"]{
 .stats {
   overflow: auto;
   margin: 0　auto;
-  padding: 0;
+  padding: 5px 0;
   text-align: center;
   a {
     display: inline-block;
@@ -273,6 +165,25 @@ input[type="radio"],input[type="checkbox"]{
   }
   strong {
     display: block;
+  }
+}
+
+.owners {
+  overflow: auto;
+  margin: 0 auto;
+  padding: 5px 0;
+  text-align: center;
+  a {
+    display: inline-block;
+    padding: 0 30px;
+    &:hover {
+      text-decoration: none;
+      color: $default-bg;
+    }
+  }
+  strong {
+    display: block;
+    color: $default-C;
   }
 }
 
@@ -316,6 +227,28 @@ input[type="radio"],input[type="checkbox"]{
 }
 
 /* Stampbooks */
+
+.top-boxs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 10px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 10px 10px 15px -10px;
+}
+
+.top-content {
+  display: block;
+}
+
+.top-icon {
+  margin: 10px;
+  a {
+    display: block;
+  }
+}
+
 
 .stampbook-cover img {
   margin: 5px;

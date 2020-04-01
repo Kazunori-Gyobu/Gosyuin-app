@@ -1,35 +1,62 @@
 <% if user_signed_in? %>
-<div class="row d-flex">
-  <aside class="col-sm-12 col-md-3">
-    <section class="user-info">
+<div class="row d-flex justify-content-center">
+  <div class="col-sm-12 aside">
+    <div class="user-info">
       <%= render 'shared/user_info' %>
-    </section>
-    <section class="stats">
+    </div>
+    <div class="stats">
       <%= render 'shared/stats', user: @user %>
-    </section>
-  </aside>
-
-  <div class="col-sm-6 col-md-3">
-    <h3>御朱印帳</h3>
-    <%= link_to "御朱印帳を登録する", new_stampbook_path, class: "btn btn-primary" %>
-    <ol class="stampbooks">
-      <%= render @stampbooks %>
-    </ol>
+    </div>
+    <div class="owners">
+      <%= render 'shared/owners' %>
+    </div>
   </div>
 
-  <div class="col-sm-6 col-md-3">
-    <h3>御朱印</h3>
-    <%= link_to "御朱印を登録する", new_stamp_path, class: "btn btn-primary" %>
-    <ol class="stamps">
-      <%= render @stamps %>
-    </ol>
+  <div class="col-sm-5 col-md-4 top-boxs">
+    <div class="top-content">
+      <div class="top-icon">
+        <%= link_to owners_stampbooks_path(id: current_user.id) do %>
+        <i class="fas fa-book fa-5x fa-fw"></i>
+        <% end %>
+      </div>
+      <%= link_to "My御朱印帳", owners_stampbooks_path(id: current_user.id) %>
+    </div>
   </div>
 
-  <div class="col-sm-12 col-md-3">
-    <h3>タイムライン</h3>
-    <%= render 'shared/feed' %>
+  <div class="col-sm-5 col-md-4 top-boxs">
+    <div class="top-content">
+      <div class="top-icon">
+        <%= link_to owners_stamps_path(id: current_user.id) do %>
+        <i class="fas fa-stamp fa-5x fa-fw"></i>
+        <% end %>
+      </div>
+      <%= link_to "My御朱印", owners_stamps_path(id: current_user.id) %>
+    </div>
+  </div>
+
+  <div class="col-sm-5 col-md-4 top-boxs">
+    <div class="top-content">
+      <div class="top-icon">
+        <%= link_to new_stampbook_path do %>
+        <i class="fas fa-image fa-5x fa-fw"></i>
+        <% end %>
+      </div>
+      <%= link_to "御朱印帳の登録", new_stampbook_path %>
+    </div>
+  </div>
+
+  <div class="col-sm-5 col-md-4 top-boxs">
+    <div class="top-content">
+      <div class="top-icon">
+        <%= link_to new_stamp_path do %>
+        <i class="fas fa-images fa-5x fa-fw"></i>
+        <% end %>
+      </div>
+      <%= link_to "御朱印の登録", new_stamp_path %>
+    </div>
   </div>
 </div>
+
 
 <% else %>
 

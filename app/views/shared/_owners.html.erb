@@ -1,0 +1,15 @@
+<% user ||= current_user %>
+<div class="owners">
+  <a href="<%= owners_stampbooks_path(id: user.id) %>">
+    <strong class="owners">
+      <%= user.stampbooks.count %>
+    </strong>
+    <i class="fas fa-book fa-2x"></i>
+  </a>
+  <a href="<%= owners_stamps_path(id: user.id) %>">
+    <strong class="owners">
+      <%= user.stamps.count %>
+    </strong>
+    <i class="fas fa-stamp fa-2x"></i>
+  </a>
+</div>
