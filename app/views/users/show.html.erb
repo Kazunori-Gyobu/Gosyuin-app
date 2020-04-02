@@ -1,36 +1,39 @@
 <% provide :title, @user.name %>
-<div class="card col-sm-10 mx-auto mt-5 px-0">
-  <div class="card-header bg-secondary-extend">
-    <h2><i class="fas fa-user-circle"></i> アカウント情報</h2>
-  </div>
-  <div class="card-body">
-    <div class="row">
-      <div class="col-sm-8">
-        <h3><%= @user.name %></h3>
-        <%= @user.profile %>
+<div class="container">
+  <div class="row">
+    <div class="card col-sm-12 col-md-6 mx-auto mt-5 px-0">
+      <div class="card-header bg-secondary-extend">
+        <h2><i class="fas fa-user-circle"></i> アカウント情報</h2>
       </div>
-      <div class="col-sm-4">
-        <div class="d-flex flex-column">
-          <%= image_tag @user.avatar.to_s, :class => "float-center border mb-2 mx-auto", :size => "100x100", :alt =>"アバター" %>
+      <div class="card-body">
+        <div class="col-sm-8">
+          <h3><%= @user.name %></h3>
+          <%= @user.profile %>
         </div>
-        <section class="stats">
-          <%= render 'shared/stats' %>
-        </section>
+        <div class="col-sm-4">
+          <div class="d-flex flex-column">
+            <%= image_tag @user.avatar.to_s, :class => "float-center border mb-2 mx-auto", :size => "100x100", :alt =>"アバター" %>
+          </div>
+          <div class="stats">
+            <%= render 'shared/stats' %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-sm-10 mx-auto mt-5 px-0">
-    <%= link_to "御朱印帳", owners_stampbooks_path(id: @user.id) %>
-    <%= link_to "御朱印", owners_stamps_path(id: @user.id) %>
-    <%= render "follow_form" if user_signed_in? %>
-    <% if @user.posts.any?%>
-    <h3><i class="far fa-comment-alt"></i> 投稿(<%= @user.posts.count %>)</h3>
-    <ol class="posts">
-      <%= render @posts %>
-    </ol>
-    <%= paginate @posts %>
-    <% end %>
+
+  <div class="row">
+    <div class="col-sm-10 mx-auto mt-5 px-0">
+      <%= link_to "御朱印帳", owners_stampbooks_path(id: @user.id) %>
+      <%= link_to "御朱印", owners_stamps_path(id: @user.id) %>
+      <%= render "follow_form" if user_signed_in? %>
+      <% if @user.posts.any?%>
+      <h3><i class="far fa-comment-alt"></i> 投稿(<%= @user.posts.count %>)</h3>
+      <ol class="posts">
+        <%= render @posts %>
+      </ol>
+      <%= paginate @posts %>
+      <% end %>
+    </div>
   </div>
 </div>

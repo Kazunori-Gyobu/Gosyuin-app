@@ -1,6 +1,14 @@
-<li id="stamp-<%= stamp.id %>">
-  <span class="stamp-name"><%= link_to stamp.name, stamp %></span>
-  <span class="stamp-photo"><%= image_tag stamp.photo.to_s, size: "200x300" %></span>
-  <span><%= link_to "編集", edit_stamp_path(stamp) %></span>
-  <span><%= link_to "削除", stamp, method: :delete, data: { confirm: "本当に削除しますか？" } %></span>
-</li>
+<div class="row d-flex justify-content-center">
+  <% stamps.each do |stamp| %>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header stamp-name">
+        <%= link_to stamp.name, stamp %>
+      </div>
+      <div class="stamp text-center">
+        <%= image_tag stamp.photo.to_s, class: "card-img-top" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

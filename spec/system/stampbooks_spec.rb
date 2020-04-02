@@ -19,7 +19,6 @@ RSpec.describe "Stampbooks", type: :system do
         click_on "送信"
   
         expect(page).to have_content "御朱印帳が登録されました！"
-        expect(page).to have_content "清水寺"
       }.to change(user.stampbooks, :count).by(1)
     end
   end
