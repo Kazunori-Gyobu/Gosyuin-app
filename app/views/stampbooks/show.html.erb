@@ -10,7 +10,8 @@
         <% end%>
       </div>
       <div class="card">
-        <div class="stampbook text-center"><%= image_tag @stampbook.cover.to_s, class: "card-img-top" %></div>
+        <div class="stampbook text-center"><%= image_tag @stampbook.cover.to_s, class: "card-img-top" %>
+        </div>
         <div class="card-body">
           <div class="card-title">
             <span class="stampbook-name"><%= @stampbook.name %></span>
@@ -35,15 +36,16 @@
         </div>
       </div>
     </div>
+
+    <div class="col-md-6">
+      <div class="show-title">
+        <h3><%= @stampbook.user.name %> さんの御朱印帳一覧</h3>
+      </div>
+      <%= render partial: 'stampbook', locals: { stampbooks: @stampbooks } %>
+    </div>
+
+    <% else %>
+    <p><%= @user.name %>さんはまだ御朱印帳を登録されていません</p>
+    <% end %>
   </div>
-  <div class="col-md-6">
-    <span><%= @stampbook.user.name %> さんの御朱印帳</span>
-    <ol class="stamps">
-      <%= render @stampbooks %>
-    </ol>
-  </div>
-  <% else %>
-  <p><%= @user.name %>さんままだ御朱印帳を登録されていません</p>
-  <% end %>
-</div>
 </div>
