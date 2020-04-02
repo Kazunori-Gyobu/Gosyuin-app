@@ -8,6 +8,7 @@ class StampbooksController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
     @stampbook = Stampbook.find(params[:id])
     @stampbooks = @stampbook.user.stampbooks.page(params[:page])
   end

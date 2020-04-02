@@ -1,22 +1,49 @@
 <div class="container">
   <% unless @stampbook.nil? %>
-  <div class="row">
+  <div class="row d-flex justify-content-center">
     <div class="col-md-6">
-      <span class="stampbook-name"><%= @stampbook.name %></span>
-      <span class="stampbook"><%= image_tag @stampbook.cover.to_s, size: "300x200" %></span>
-      <span>取得日<%= @stampbook.given_date %></span>
-      <span>メモ<%= @stampbook.remarks %></span>
-      <span><%= link_to "編集", edit_stampbook_path(@stampbook) %></span>
-      <span><%= link_to "削除", @stampbook, method: :delete, data: { confirm: "登録されている御朱印も削除されます。本当に削除しますか？" } %></span>
+      <div class="show-title stampbook-color">
+        <% if current_user?(@user) %>
+        <h2><i class="fas fa-book"></i> My御朱印帳</h2>
+        <% else %>
+        <h2><i class="fas fa-book"></i><%= @user.name %>の御朱印帳</h2>
+        <% end%>
+      </div>
+      <div class="card">
+        <div class="stampbook text-center"><%= image_tag @stampbook.cover.to_s, class: "card-img-top" %></div>
+        <div class="card-body">
+          <div class="card-title">
+            <span class="stampbook-name"><%= @stampbook.name %></span>
+          </div>
+          <table>
+            <tr>
+              <th>神社/寺院</th>
+              <td><%= @stampbook.distinction %></td>
+            </tr>
+            <tr>
+              <th>取得日</th>
+              <td><%= @stampbook.given_date %></td>
+            </tr>
+            <tr>
+              <th>御朱印の数</th>
+              <td><%= @stampbook.stamps.count %></td>
+            </tr>
+          </table>
+          <p class="card-text"><%= @stampbook.remarks %></p>
+          <span><%= link_to "編集", edit_stampbook_path(@stampbook) %></span>
+          <span><%= link_to "削除", @stampbook, method: :delete, data: { confirm: "登録されている御朱印も削除されます。本当に削除しますか？" } %></span>
+        </div>
+      </div>
     </div>
-    <div class="col-md-6">
-      <span><%= @stampbook.user.name %> さんの御朱印帳</span>
-      <ol class="stamps">
-        <%= render @stampbooks %>
-      </ol>
-    </div>
-    <% else %>
-    <p><%= @user.name %>さんままだ御朱印帳を登録されていません</p>
-    <% end %>
   </div>
+  <div class="col-md-6">
+    <span><%= @stampbook.user.name %> さんの御朱印帳</span>
+    <ol class="stamps">
+      <%= render @stampbooks %>
+    </ol>
+  </div>
+  <% else %>
+  <p><%= @user.name %>さんままだ御朱印帳を登録されていません</p>
+  <% end %>
+</div>
 </div>

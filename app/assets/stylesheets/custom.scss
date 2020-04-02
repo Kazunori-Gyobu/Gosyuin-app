@@ -87,6 +87,19 @@ input[type="radio"],input[type="checkbox"]{
   margin-right: 1em;
 }
 
+/* Table */
+
+table {
+  width: 100%;
+}
+
+td,th {
+  border: none;
+  padding: 5px;
+  border-bottom: 1px solid $default-bg;
+}
+
+
 /* flash */
 #flash {
   color: #343a40;
@@ -217,6 +230,8 @@ input[type="radio"],input[type="checkbox"]{
   }
 }
 
+/* Stampbooks, Stamps */
+
 .stampbooks, .stamps {
   list-style: none;
   padding: 0;
@@ -226,15 +241,18 @@ input[type="radio"],input[type="checkbox"]{
   }
 }
 
+
+
 /* Stampbooks */
 
-.top-boxs {
+.top-boxes {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 20px 10px;
   padding: 40px;
   text-align: center;
+  border-radius: 10px;
   box-shadow: 10px 10px 15px -10px;
 }
 
@@ -308,6 +326,12 @@ input[type="radio"],input[type="checkbox"]{
 }
 
 .stampbook-color {
+  color: $default-C;
+}
+
+.stampbook-name {
+  font-size: 1.5em;
+  font-weight: bold;
   color: $default-C;
 }
 
