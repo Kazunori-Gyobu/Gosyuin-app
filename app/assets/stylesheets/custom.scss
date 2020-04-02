@@ -91,6 +91,8 @@ input[type="radio"],input[type="checkbox"]{
 
 table {
   width: 100%;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 td,th {
@@ -120,23 +122,6 @@ td,th {
     padding: -10px 0;
     background-color: #70b9b0;
   }
-}
-
-/* アカウント情報 */
-
-.circle-avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.card-header > h2 {
-  color: darkgray;
-}
-
-.bg-secondary-extend {
-  background-color: $default-bg;
 }
 
 /* Users index */
@@ -202,6 +187,18 @@ td,th {
 
 /* User Show */
 
+.circle-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile {
+  margin-bottom: 40px;
+  text-align: left;
+}
+
 .posts {
   list-style: none;
   padding: 0;
@@ -209,10 +206,12 @@ td,th {
     padding: 10px 0;
     border-top: 1px solid $default-bg;
   }
+
   .user {
     margin-top: 5em;
     padding-top: 0;
   }
+
   .content {
     display: block;
     margin-left: 60px;
@@ -221,6 +220,7 @@ td,th {
       padding: 5px 0;
     }
   }
+
   .like-count, .timestamp {
     display: block;
     margin-left: 60px;
@@ -228,6 +228,48 @@ td,th {
   .unlike-btn {
     color: #e9adca;
   }
+}
+
+.myline {
+  margin: 20px;
+  padding: 0;
+}
+
+#follow_form {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.account {
+  margin: 20px;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.account-box {
+  margin: 30px 0;
+  padding: 30px 10px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px -10px;
+  .btn {
+    text-align: center;
+  }
+}
+
+.user-name {
+  margin: 5px 0;
+  font-size: 1.5em;
+}
+
+.male-color {
+  color: #70b9b0;
+}
+
+.profile-color {
+  color: #1e90ff;
 }
 
 /* Stampbooks, Stamps */
@@ -266,7 +308,6 @@ td,th {
     display: block;
   }
 }
-
 
 .stampbook-cover img {
   margin: 5px;
