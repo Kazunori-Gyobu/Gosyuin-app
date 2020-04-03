@@ -354,6 +354,12 @@ td,th {
   a {
     display: block;
   }
+  i {
+    color: $active-C;
+  }
+  &:hover i {
+    color: $default-C;
+  }
 }
 
 .stampbook-cover img {
@@ -445,7 +451,7 @@ td,th {
 
 #img_photo {
   font-size: 15px;
-  margin-top: 10px;
+  margin: 0 auto;
   padding: 5px 8px;
   border: solid 5px $default-C;
   color: #666;
@@ -455,6 +461,7 @@ td,th {
   cursor: pointer;
   width: 100%;
   height: 300px;
+  max-width: 450px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
