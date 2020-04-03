@@ -1,6 +1,6 @@
 <div class="row d-flex justify-content-center">
   <% stamps.each do |stamp| %>
-  <div class="col-sm-6 col-md-12">
+  <div class="col-sm-6">
     <div class="card">
       <div class="card-header stamp-name">
         <%= link_to stamp.name, stamp %>
@@ -11,4 +11,5 @@
     </div>
   </div>
   <% end %>
+  <%= paginate stamps %>
 </div>

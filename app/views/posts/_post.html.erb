@@ -1,5 +1,5 @@
 <li id="post-<%= post.id %>" data-post-id="<% post.id %>">
-  <%= image_tag post.user.avatar.to_s, :class => "border mb-2 mx-auto", :size => "50x50", :alt =>"アバター" %>
+  <%= image_tag post.user.avatar.to_s, class: "border mb-2 mx-auto", size: "50x50", alt: "アバター" %>
   <span class="user"><%= link_to post.user.name, post.user %></span>
   <span class="content">
     <%= post.content %>

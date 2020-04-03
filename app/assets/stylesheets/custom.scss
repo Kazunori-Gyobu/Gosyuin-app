@@ -27,6 +27,20 @@ body {
   // margin-top: 100px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  margin: 30px 0;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin: 20px 0;
+}
+
 .aside {
   margin-bottom: 20px;
   padding-top: 10px;
@@ -98,6 +112,7 @@ table {
 td,th {
   border: none;
   padding: 5px;
+  font-weight: normal;
   border-bottom: 1px solid $default-bg;
 }
 
@@ -127,6 +142,8 @@ td,th {
 /* Users index */
 
 .users {
+  width: 80%;
+  margin: 0 auto;
   list-style: none;
   // margin: 0;
   li {
@@ -135,12 +152,23 @@ td,th {
     padding: 10px 0;
     border-bottom: 1px solid $default-bg;
   }
+  .card-body {
+    padding: 0.75rem;
+  }
+  .card-title {
+    margin-bottom: 0.25rem;
+  }
+  .card-text {
+    margin: 10px 0;
+  }
 }
 
 /* user_info */
 
 .user-info {
   color: $default-C;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .avatar {
