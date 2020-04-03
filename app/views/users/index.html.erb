@@ -20,6 +20,9 @@
               <i class="fas fa-book fa-fw stampbook-color"></i> <%= user.stampbooks.count %>
               <i class="fas fa-stamp fa-fw stamp-color"></i> <%=user.stamps.count %>
             </div>
+            <div class="card-text">
+              <%= render partial: "follow_form", locals: { user: user } if user_signed_in? %>
+            </div>
           </div>
         </div>
       </div>

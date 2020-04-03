@@ -38,10 +38,11 @@
         <% if current_user?(@user) %>
         <%= button_to "アカウント情報を編集する", edit_user_registration_path, class: "btn btn-primary" %>
         <% else %>
-        <div class="myline">
-          <%= render "follow_form" if user_signed_in? %>
+        <div class="account-btn">
+          <%= render partial: "follow_form", locals: { user: @user } if user_signed_in? %>
         </div>
         <% end %>
+
       </div>
       <div class="row d-flex justify-content-center">
         <div class="col-sm-5 top-boxes">

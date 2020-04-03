@@ -41,6 +41,10 @@ h2 {
   margin: 20px 0;
 }
 
+h3 {
+  font-size: 1.2em;
+}
+
 .aside {
   margin-bottom: 20px;
   padding-top: 10px;
@@ -263,12 +267,6 @@ td,th {
   padding: 0;
 }
 
-#follow_form {
-  margin-top: 5px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
 .account {
   margin: 20px;
   font-size: 2em;
@@ -282,7 +280,15 @@ td,th {
   text-align: center;
   border-radius: 10px;
   box-shadow: 10px 10px 15px -10px;
-  .btn {
+}
+
+.account-btn {
+  margin: 20px;
+  padding: 0;
+  text-align: center;
+  #follow_form {
+    margin-top: 5px;
+    margin-bottom: 10px;
     text-align: center;
   }
 }
