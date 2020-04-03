@@ -2,10 +2,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <%= render 'shared/user_info' %>
-    </div>
-    <div class="col-md-12">
-      <%= render partial: 'shared/post_form', locals: { posts: @posts } %>
+      <div class="post-form">
+        <h2>投稿記事の作成</h2>
+        <%= render 'shared/user_info' %>
+        <%= render partial: 'shared/post_form', locals: { posts: @posts } %>
+      </div>
     </div>
   </div>
 </div>
