@@ -1,5 +1,6 @@
 class StampsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :correct_user, only: :destroy
   before_action :set_select_collections, only: [:new, :create, :edit, :update]
 
   def index
@@ -9,6 +10,9 @@ class StampsController < ApplicationController
   
   def show
     @stamp = Stamp.find(params[:id])
+    @user = @stamp.user
+    @stamps = @stamp.user.stamps.page(params[:page])
+    @stampbooks = @user.stampbooks.page(params[:page])
   end
 
   def new
@@ -45,6 +49,14 @@ class StampsController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
+  def owners
+    @user = User.find(params[:id])
+    @stamp = @user.stamps.first
+    @stamps = @user.stamps.page(params[:page])
+    @stampbooks = @user.stampbooks
+    render 'show'
+  end
+
   private
 
   def stamp_params
@@ -53,7 +65,7 @@ class StampsController < ApplicationController
 
   def correct_user
     @stamp = current_user.stamps.find_by(id: params[:id])
-    redirect_to root_url if @post.nil?
+    redirect_to root_url if @pstamp.nil?
   end
 
   def set_select_collections

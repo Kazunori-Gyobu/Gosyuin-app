@@ -1,3 +1,5 @@
-<% flash.each do |key, value| %>
+<div class="row no-gutters">
+  <% flash.each do |key, value| %>
   <%= content_tag(:div, value, class: "#{key}") %>
-<% end %>
+  <% end %>
+</div>

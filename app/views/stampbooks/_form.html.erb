@@ -13,7 +13,7 @@
 
 <div class="form-group">
   <%= f.label :cover, "御朱印帳の画像" %>
-  <div id="img_field" onClick="$('#file').click()">
+  <div id="img_photo" onClick="$('#file').click()">
     <% if @stampbook.cover.present? %>
     <%= image_tag(@stampbook.cover.to_s, size: "400x300") %>
     <% else %>
