@@ -19,6 +19,7 @@
 $default-C:#58495d;
 $active-C:#e9adca;
 $default-bg:#f2e1e6;
+$accent-C: #dd4827;
 
 body {
   display: block;
@@ -125,6 +126,9 @@ input[type="radio"],input[type="checkbox"]{
   }
   .alert {
     background-color: red;
+  }
+  .success {
+    background-color: #70b9b0;
   }
 }
 
@@ -268,6 +272,12 @@ input[type="radio"],input[type="checkbox"]{
   }
 }
 
+/* user_info */
+
+.user-info {
+  text-align: center;
+}
+
 .avatar {
   float: left;
   margin-right: 10px;
@@ -275,10 +285,11 @@ input[type="radio"],input[type="checkbox"]{
 
 .stats {
   overflow: auto;
-  margin-top: 0;
+  margin: 0　auto;
   padding: 0;
+  text-align: center;
   a {
-    float: left;
+    display: inline-block;
     padding: 0 10px;
     border-left: 1px solid $default-bg;
     color: gray;
@@ -288,7 +299,7 @@ input[type="radio"],input[type="checkbox"]{
     }
     &:hover {
       text-decoration: none;
-      color: blue;
+      color: $default-C;
     }
   }
   strong {
@@ -326,12 +337,12 @@ input[type="radio"],input[type="checkbox"]{
   }
 }
 
-.stampbooks {
+.stampbooks, .stamps {
   list-style: none;
   padding: 0;
   li {
     padding: 10px 0;
-    border-top: 1px solid $default-bg;
+    border-bottom: 1px solid $default-bg;
   }
 }
 
@@ -389,6 +400,73 @@ input[type="radio"],input[type="checkbox"]{
 }
  
 #img_field:hover i {
+  transition: 0.3s ease-out;
+  display: block;
+  color: #fff;
+}
+
+.stampbook-color {
+  color: $default-C;
+}
+
+/* Stamps */
+
+.stamp-photo img {
+  margin: 5px;
+  width: 70%;
+  height: auto;
+  border: 5px solid $default-C;
+  border-radius: 5px;
+}
+
+.stamp-color {
+  color: #DD4827;
+}
+
+#img_photo {
+  font-size: 15px;
+  margin-top: 10px;
+  padding: 5px 8px;
+  border: solid 5px $default-C;
+  color: #666;
+  position: relative;
+  padding: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 300px;
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: 0.3s ease-out;
+  text-align: center;
+}
+ 
+#img_photo i {
+  font-size: 100px;
+  color: #aaa;
+  line-height: 300px;
+  transition: 0.3s ease-out;
+}
+ 
+#img_photo i.add {
+  display: none;
+  font-size: 50px;
+  position: absolute;
+  top: -100px;
+  right: 15px;
+}
+ 
+#img_photo:hover {
+  background-color: $default-bg;
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+}
+ 
+#img_photo:hover i {
   transition: 0.3s ease-out;
   display: block;
   color: #fff;

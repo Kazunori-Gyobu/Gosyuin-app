@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  has_many :stampbooks, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :stampbooks, dependent: :destroy
+  has_many :stamps, through: :stampbooks
   has_many :likes, dependent: :destroy
   has_many :like_posts, through: :likes, source: :post
   has_many :active_relationships,
