@@ -4,7 +4,7 @@ orbs:
   aws-ecs: circleci/aws-ecs@1.1.0
 
 jobs:
-  test:
+  build:
     docker:
       - image: circleci/ruby:2.6-node-browsers-legacy
         environment:
@@ -17,7 +17,7 @@ jobs:
           MYSQL_PASSWORD: test
           MYSQL_DATABASE: g_app_test
           MYSQL_ALLOW_EMPTY_PASSWORD: true
-    working_directoru: ~/Gosyuin-app
+    working_directory: ~/Gosyuin-app
     steps:
       - checkout
       - restore_cache:
@@ -40,11 +40,11 @@ jobs:
       - run: bundle exec rails db:schema:load --trace
       # ChromeDriver
       - run:
-        name: Update ChromeDriver
-        command: |
-          CHROME_VERSION=$(google-chrome --version | sed -r 's/[^0-9]+([0-9]+\.[0-9]+\.[0-9]+).*/\1/g')
-          CHROMEDRIVER_VERSION=$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)
-          bundle exec chromedriver-update $CHROMEDRIVER_VERSION
+          name: Update ChromeDriver
+          command: |
+            CHROME_VERSION=$(google-chrome --version | sed -r 's/[^0-9]+([0-9]+\.[0-9]+\.[0-9]+).*/\1/g')
+            CHROMEDRIVER_VERSION=$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)
+            bundle exec chromedriver-update $CHROMEDRIVER_VERSION
       # test
       - run:
           name: Run rspec
