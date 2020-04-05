@@ -8,7 +8,9 @@ class StampbooksController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
     @stampbook = Stampbook.find(params[:id])
+    @stampbooks = @stampbook.user.stampbooks.page(params[:page])
   end
 
   def new
@@ -43,6 +45,13 @@ class StampbooksController < ApplicationController
     @stampbook.destroy
     flash[:notice] = "御朱印帳を削除しました"
     redirect_to request.referrer || root_url
+  end
+
+  def owners
+    @user = User.find(params[:id])
+    @stampbook = @user.stampbooks.first
+    @stampbooks = @user.stampbooks.page(params[:page])
+    render 'show'
   end
 
   private

@@ -23,8 +23,34 @@ $accent-C: #dd4827;
 
 body {
   display: block;
-  // padding-top: 4.5rem;
+  padding-top: 55px;
   // margin-top: 100px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  margin: 30px 0;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin: 20px 0;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+.aside {
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  background-color: $active-C;
+  text-align: center;
 }
 
 section {
@@ -34,6 +60,18 @@ section {
 
 textarea {
   resize: vertical;
+}
+
+.h1 {
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
+a {
+  color: $default-C;
+  &:hover {
+    color: $default-bg;
+  }
 }
 
 ol {
@@ -56,35 +94,6 @@ ol {
   margin-bottom: 10px;
 }
 
-/* btn */
-
-.btn-primary {
-  color: #fff; //ボタンのテキストの色
-  background: $active-C; //ボタンの背景色
-  border-color: $active-C;
-}
-
-.btn-primary:hover, .btn-primary:focus, 
-.btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
-.btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
-.open > .dropdown-toggle.btn-primary, 
-.open > .dropdown-toggle.btn-primary:hover,
-.open > .dropdown-toggle.btn-primary:focus, 
-.open > .dropdown-toggle.btn-primary.focus,
-.btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
-.btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
-.btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
-  color: #fff; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
-  background: $default-C; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
-  border-color: $default-C;
-}
-
-.btn-primary.outline {
-  color: $active-C; //アウトラインのみのボタンのテキストの色
-  border: 3px solid $active-C; //アウトラインのみのボタンの線の色
-  border-color: $active-C;
-}
-
 /* form */
 
 input[type="radio"],input[type="checkbox"]{
@@ -96,172 +105,49 @@ input[type="radio"],input[type="checkbox"]{
   margin-right: 1em;
 }
 
-/* navbar */
+/* Table */
 
-.navbar-light .navbar-nav .nav-link {
-  color: #fff;
+table {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
-.navbar-light > a:hover {
-  color: gray;
+td,th {
+  border: none;
+  padding: 5px;
+  font-weight: normal;
+  border-bottom: 1px solid $default-bg;
 }
 
-.navbar .navbar-brand {
-  font-size: 2em;
-  font-weight: bold;
-  color: #fff;
-  .nav-link > a:hover {
-    color: gray;
-  }
-  }
 
 /* flash */
 #flash {
   color: #343a40;
   text-align: center;
-  margin: 10px 0;
+  width: 100%;
   font-size: 1.5em;
+  background-color: $active-C;
+  padding: 10px 0;
   .notice {
+    padding: -10px 0;
     background-color: $default-bg;
   }
   .alert {
+    padding: -10px 0;
     background-color: red;
   }
   .success {
+    padding: -10px 0;
     background-color: #70b9b0;
   }
-}
-
-/* hello section */
-
-#hello {
-  width: 100%;
-  height: 75vh;
-  background: image-url('/assets/kasugataisya.jpg') top center;
-  background-size: cover;
-  position: relative;
-  margin-bottom: -80px;
-}
-
-#hello:before {
-  content: "";
-  background: rgba(88, 73, 93, 0.75);
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-#hello .hello-container {
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  padding-top: 80px;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-#hello h1 {
-  margin: 0 0 10px 0;
-  font-size: 48px;
-  font-weight: 300;
-  line-height: 56px;
-  color: #fff;
-}
-
-#hello h2 {
-  color: #eee;
-  margin-bottom: 70px;
-  font-size: 20px;
-  font-weight: 300;
-}
-
-#hello .btn-get-started {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  letter-spacing: 1px;
-  display: inline-block;
-  margin-bottom: 10px;
-  padding: 8px 28px 10px 28px;
-  border-radius: 50px;
-  transition: 0.5s;
-  border: 1px solid #fff;
-  color: #fff;
-}
-
-#hello .btn-get-started:hover {
-  background: #fff;
-  color: #70b9b0;
-  border: 1px solid #70b9b0;
-}
-
-@media (min-width: 1024px) {
-  #hero {
-    background-attachment: fixed;
-  }
-}
-
-@media (max-width: 768px) {
-  #hero h1 {
-    font-size: 28px;
-    line-height: 36px;
-  }
-  #hero h2 {
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 30px;
-  }
-}
-
-
-.section-bg {
-  background-color: #f2f9f8;
-}
-
-.section-title {
-  text-align: center;
-  padding-bottom: 30px;
-}
-
-.section-title h2 {
-  font-size: 32px;
-  font-weight: 300;
-  margin: 30px 0;
-  padding-bottom: 0;
-  color: #555;
-}
-
-.section-title p {
-  margin-bottom: 0;
-}
-
-/* アカウント情報 */
-
-.circle-avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.card-header > h2 {
-  color: darkgray;
-}
-
-.bg-secondary-extend {
-  background-color: $default-bg;
 }
 
 /* Users index */
 
 .users {
+  width: 80%;
+  margin: 0 auto;
   list-style: none;
   // margin: 0;
   li {
@@ -270,12 +156,23 @@ input[type="radio"],input[type="checkbox"]{
     padding: 10px 0;
     border-bottom: 1px solid $default-bg;
   }
+  .card-body {
+    padding: 0.75rem;
+  }
+  .card-title {
+    margin-bottom: 0.25rem;
+  }
+  .card-text {
+    margin: 10px 0;
+  }
 }
 
 /* user_info */
 
 .user-info {
-  text-align: center;
+  color: $default-C;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .avatar {
@@ -286,20 +183,14 @@ input[type="radio"],input[type="checkbox"]{
 .stats {
   overflow: auto;
   margin: 0　auto;
-  padding: 0;
+  padding: 5px 0;
   text-align: center;
   a {
     display: inline-block;
     padding: 0 10px;
-    border-left: 1px solid $default-bg;
-    color: gray;
-    &:first-child {
-      padding-left: 0;
-      border: 0;
-    }
     &:hover {
       text-decoration: none;
-      color: $default-C;
+      color: $default-bg;
     }
   }
   strong {
@@ -307,7 +198,38 @@ input[type="radio"],input[type="checkbox"]{
   }
 }
 
+.owners {
+  overflow: auto;
+  margin: 0 auto;
+  padding: 5px 0;
+  text-align: center;
+  a {
+    display: inline-block;
+    padding: 0 30px;
+    &:hover {
+      text-decoration: none;
+      color: $default-bg;
+    }
+  }
+  strong {
+    display: block;
+    color: $default-C;
+  }
+}
+
 /* User Show */
+
+.circle-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile {
+  margin-bottom: 40px;
+  text-align: left;
+}
 
 .posts {
   list-style: none;
@@ -316,10 +238,12 @@ input[type="radio"],input[type="checkbox"]{
     padding: 10px 0;
     border-top: 1px solid $default-bg;
   }
+
   .user {
     margin-top: 5em;
     padding-top: 0;
   }
+
   .content {
     display: block;
     margin-left: 60px;
@@ -328,6 +252,7 @@ input[type="radio"],input[type="checkbox"]{
       padding: 5px 0;
     }
   }
+
   .like-count, .timestamp {
     display: block;
     margin-left: 60px;
@@ -336,6 +261,65 @@ input[type="radio"],input[type="checkbox"]{
     color: #e9adca;
   }
 }
+
+.myline {
+  margin: 20px;
+  padding: 0;
+}
+
+.account {
+  margin: 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.account-box {
+  margin: 30px 0;
+  padding: 30px 10px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px -10px;
+}
+
+.account-btn {
+  margin: 20px;
+  padding: 0;
+  text-align: center;
+  #follow_form {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+}
+
+.user-name {
+  margin: 5px 0;
+  font-size: 1.5em;
+}
+
+.male-color {
+  color: #70b9b0;
+}
+
+.profile-color {
+  color: #1e90ff;
+}
+
+/* Posts */
+
+.post-form {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.picture {
+  margin: 10px 0;
+  padding: 10px;
+}
+
+/* Stampbooks, Stamps */
 
 .stampbooks, .stamps {
   list-style: none;
@@ -346,7 +330,37 @@ input[type="radio"],input[type="checkbox"]{
   }
 }
 
+
+
 /* Stampbooks */
+
+.top-boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 10px;
+  padding: 40px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px -10px;
+}
+
+.top-content {
+  display: block;
+}
+
+.top-icon {
+  margin: 10px;
+  a {
+    display: block;
+  }
+  i {
+    color: $active-C;
+  }
+  &:hover i {
+    color: $default-C;
+  }
+}
 
 .stampbook-cover img {
   margin: 5px;
@@ -409,6 +423,12 @@ input[type="radio"],input[type="checkbox"]{
   color: $default-C;
 }
 
+.stampbook-name {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: $default-C;
+}
+
 /* Stamps */
 
 .stamp-photo img {
@@ -423,9 +443,15 @@ input[type="radio"],input[type="checkbox"]{
   color: #DD4827;
 }
 
+.stamp-name {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #DD4827;
+}
+
 #img_photo {
   font-size: 15px;
-  margin-top: 10px;
+  margin: 0 auto;
   padding: 5px 8px;
   border: solid 5px $default-C;
   color: #666;
@@ -433,8 +459,9 @@ input[type="radio"],input[type="checkbox"]{
   padding: 0;
   border-radius: 5px;
   cursor: pointer;
-  width: 300px;
-  height: 400px;
+  width: 100%;
+  height: 300px;
+  max-width: 450px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

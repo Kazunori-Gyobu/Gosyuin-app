@@ -1,12 +1,53 @@
-<% provide :title, @stamp.name %>
-<div class="card col-sm-10 mx-auto mt-5 px-0">
-  <span class="stamp-name"><i class="fas fa-stamp stamp-color"></i> <%= @stamp.name %></span>
-  <span class="stampbook-name"><i class="fas fa-book stampbook-color"></i> <%= link_to @stamp.stampbook.name, @stamp.stampbook %></span>
-  <span class="stamp"><%= image_tag @stamp.photo.to_s, size: "300x400" %></span>
-  <span>取得日<%= @stamp.given_date %></span>
-  <span>メモ<%= @stamp.remarks %></span>
-  <span><%= link_to "編集", edit_stamp_path(@stamp) %></span>
-  <% if current_user?(@stamp.user) %>
-  <span><%= link_to "削除", @stamp, method: :delete, data: { confirm: "本当に削除しますか？" } %></span>
-  <% end %>
+<div class="container">
+  <% unless @stamp.nil? %>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <div class="show-title stamp-color">
+        <% if current_user?(@user) %>
+        <h2><i class="fas fa-stamp"></i> My御朱印</h2>
+        <% else %>
+        <h2><i class="fas fa-stamp"></i><%= @user.name %>の御朱印</h2>
+        <% end%>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="card w-75">
+          <div class="stamp text-center"><%= image_tag @stamp.photo.to_s, class: "card-img"%>
+          </div>
+          <div class="card-body">
+            <div class="card-title">
+              <span class="stamp-name"><%= @stamp.name %></span>
+            </div>
+            <table>
+              <tr>
+                <th>神社/寺院</th>
+                <td><%= @stamp.distinction %></td>
+              </tr>
+              <tr>
+                <th>取得日</th>
+                <td><%= @stamp.given_date %></td>
+              </tr>
+              <tr>
+                <th>御朱印帳</th>
+                <td><%= @stamp.stampbook.name %></td>
+              </tr>
+            </table>
+            <p class="card-text"><%= @stamp.remarks %></p>
+            <span><%= link_to "編集", edit_stamp_path(@stamp) %></span>
+            <span><%= link_to "削除", @stamp, method: :delete, data: { confirm: "本当に削除しますか？" } %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6">
+      <div class="show-title">
+        <h3><%= @stamp.user.name %> さんの御朱印一覧</h3>
+      </div>
+      <%= render partial: 'stamp', locals: { stamps: @stamps } %>
+    </div>
+
+    <% else %>
+    <p><%= @user.name %>さんはまだ御朱印を登録されていません</p>
+    <% end %>
+  </div>
 </div>

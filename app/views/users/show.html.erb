@@ -1,34 +1,120 @@
 <% provide :title, @user.name %>
-<div class="card col-sm-10 mx-auto mt-5 px-0">
-    <div class="card-header bg-secondary-extend">
-        <h2><i class="fas fa-user-circle"></i> アカウント情報</h2>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-sm-8">
-                <h3><%= @user.name %></h3>
-                <%= @user.profile %>
-            </div>
-            <div class="col-sm-4">
-                <div class="d-flex flex-column">
-                    <%= image_tag @user.avatar.to_s, :class => "float-center border mb-2 mx-auto", :size => "100x100", :alt =>"アバター" %>
-                </div>
-                <section class="stats">
-                    <%= render 'shared/stats' %>
-                </section>
-            </div>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-sm-12 col-md-8">
+      <div class="account">
+        <h2><i class="fas fa-user-circle stampbook-color"></i> アカウント情報</h2>
+      </div>
+      <div class="account-box">
+        <div class="">
+          <%= image_tag @user.avatar.to_s, class: "circle-avatar", size: "100x100", alt: "アバター" %>
         </div>
+        <div class="user-name">
+          <h3><%= @user.name %></h3>
+        </div>
+        <div class="stats">
+          <%= render 'shared/stats' %>
+        </div>
+        <div class="profile">
+          <table>
+            <% if current_user?(@user) %>
+            <tr>
+              <th><i class="far fa-envelope fa-fw male-color"></i> メールアドレス</th>
+              <td><%= @user.email %></td>
+            </tr>
+            <% end %>
+            <tr>
+              <th><i class="fas fa-book fa-fw stampbook-color"></i> 御朱印帳の数</th>
+              <td><%= @user.stampbooks.count %></td>
+            </tr>
+            <tr>
+              <th><i class="fas fa-stamp fa-fw stamp-color"></i> 御朱印の数</th>
+              <td><%= @user.stamps.count %></td>
+            </tr>
+          </table>
+          <strong><i class="fas fa-user fa-fw profile-color"></i> 自己紹介</strong>
+          <p><%= @user.profile %></p>
+        </div>
+        <% if current_user?(@user) %>
+        <%= button_to "アカウント情報を編集する", edit_user_registration_path, class: "btn btn-primary" %>
+        <% else %>
+        <div class="account-btn">
+          <%= render partial: "follow_form", locals: { user: @user } if user_signed_in? %>
+        </div>
+        <% end %>
+
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-sm-5 top-boxes">
+          <div class="top-content">
+            <div class="top-icon">
+              <%= link_to owners_stampbooks_path(id: @user.id) do %>
+              <i class="fas fa-book fa-5x fa-fw"></i>
+              <% end %>
+            </div>
+            <%= link_to "My御朱印帳", owners_stampbooks_path(id: @user.id) %>
+          </div>
+        </div>
+
+        <div class="col-sm-5 top-boxes">
+          <div class="top-content">
+            <div class="top-icon">
+              <%= link_to owners_stamps_path(id: @user.id) do %>
+              <i class="fas fa-stamp fa-5x fa-fw"></i>
+              <% end %>
+            </div>
+            <%= link_to "My御朱印", owners_stamps_path(id: @user.id) %>
+          </div>
+        </div>
+
+        <div class="col-sm-5 top-boxes">
+          <div class="top-content">
+            <div class="top-icon">
+              <%= link_to new_stampbook_path do %>
+              <i class="fas fa-image fa-5x fa-fw"></i>
+              <% end %>
+            </div>
+            <%= link_to "御朱印帳を登録する", new_stampbook_path %>
+          </div>
+        </div>
+
+        <div class="col-sm-5 top-boxes">
+          <div class="top-content">
+            <div class="top-icon">
+              <%= link_to new_stamp_path do %>
+              <i class="fas fa-images fa-5x fa-fw"></i>
+              <% end %>
+            </div>
+            <%= link_to "御朱印を登録する", new_stamp_path %>
+          </div>
+        </div>
+
+        <div class="col-sm-5 top-boxes">
+          <div class="top-content">
+            <div class="top-icon">
+              <%= link_to new_post_path do %>
+              <i class="far fa-comment-alt fa-5x fa-fw"></i>
+              <% end %>
+            </div>
+            <%= link_to "投稿する", new_post_path %>
+          </div>
+        </div>
+
+      </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-sm-10 mx-auto mt-5 px-0">
-        <%= render "follow_form" if user_signed_in? %>
+
+
+
+    <div class="col-sm-12 col-md-4">
+      <div class="myline">
         <% if @user.posts.any?%>
         <h3><i class="far fa-comment-alt"></i> 投稿(<%= @user.posts.count %>)</h3>
         <ol class="posts">
-            <%= render @posts %>
+          <%= render @posts %>
         </ol>
         <%= paginate @posts %>
         <% end %>
+      </div>
     </div>
+  </div>
 </div>

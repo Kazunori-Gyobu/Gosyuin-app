@@ -1,6 +1,15 @@
-<li id="stampbook-<%= stampbook.id %>">
-  <span class="stampbook-name"><%= link_to stampbook.name, stampbook %></span>
-  <span class="stampbook-cover"><%= image_tag stampbook.cover.to_s, size: "300x200" %></span>
-  <span><%= link_to "編集", edit_stampbook_path(stampbook) %></span>
-  <span><%= link_to "削除", stampbook, method: :delete, data: { confirm: "登録されている御朱印も削除されます。本当に削除しますか？" } %></span>
-</li>
+<div class="row d-flex">
+  <% stampbooks.each do |stampbook| %>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header">
+        <%= link_to stampbook.name, stampbook %>
+      </div>
+      <div class="stampbook text-center">
+        <%= image_tag stampbook.cover.to_s, class: "card-img-top" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <%= paginate stampbooks %>
+</div>
