@@ -31,13 +31,13 @@ jobs:
       - save_cache:
           paths:
           - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfilelock" }}
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run:
           name: wait for DB
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
       # Database
-      - run: bundle exec rails db:create --trace
-      - run: bundle exec rails db:schema:load --trace
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
       # ChromeDriver
       - run:
           name: Update ChromeDriver
