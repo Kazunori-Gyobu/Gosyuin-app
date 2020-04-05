@@ -39,13 +39,6 @@ jobs:
       - run: mv config/database.yml.ci config/database.yml
       - run: bundle exec rake db:create --trace
       - run: bundle exec rake db:schema:load --trace
-      # ChromeDriver
-      - run:
-          name: Update ChromeDriver
-          command: |
-            CHROME_VERSION=$(google-chrome --version | sed -r 's/[^0-9]+([0-9]+\.[0-9]+\.[0-9]+).*/\1/g')
-            CHROMEDRIVER_VERSION=$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)
-            bundle exec chromedriver-update $CHROMEDRIVER_VERSION
       # test
       - run:
           name: Run rspec
