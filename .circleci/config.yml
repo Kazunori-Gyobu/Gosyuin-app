@@ -34,10 +34,11 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run:
           name: wait for DB
-          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 3000s
       # Database
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
+      - run: mv config/database.yml.ci config/database.yml
+      - run: bundle exec rake db:create --trace
+      - run: bundle exec rake db:schema:load --trace
       # ChromeDriver
       - run:
           name: Update ChromeDriver
