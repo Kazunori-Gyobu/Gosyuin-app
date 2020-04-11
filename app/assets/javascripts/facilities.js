@@ -1,7 +1,7 @@
 var map;
 var infowindow;
 
-function get Location() {
+function getLocation() {
   // 現在地の取得
   navigator.geolocation.getCurrentPosition(
     function (position) {
@@ -19,8 +19,7 @@ function get Location() {
         streetViewControl: false,
         zoomControl: true,
       };
-      map = new google.maps.Map(getElementById('map', mapOptions)
-      );
+      map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
       // 現在地を中心にマップに円を描く
       var circleOptions = {
@@ -46,6 +45,11 @@ function get Location() {
     }, function (error) {
       // 失敗時の処理
       alert('エラー：' + error);
+    },
+    {
+      "enableHighAccuracy": false,
+      "timeout": 8000,
+      "maximumAge": 2000,
     });
 }
 
@@ -70,42 +74,3 @@ function createMarker(place) {
     infowindow.open(map, this);
   });
 }
-
-
-
-function initialize() {
-  var mapOptions = {
-    zoom: 11,
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
-    center: center,
-    mapTypeControl: false,
-    fullscreenControl: false,
-    streetViewControl: false,
-    zoomControl: true,
-  };
-
-  var initPos = new google.maps.LatLng(34.45501, 136.725793);
-
-  var mapDiv = document.getElementById("map_canvas");
-  var map = new google.maps.MAP(mapDiv, mapOptions);
-  var request = {
-    location: initPos,
-    radius: 1000,
-    types: ['place_of_worship']
-  };
-  var servise = new google.maps.places.PlacesService(map);
-  service.search(request, Result_Places);
-}
-
-function Result_Places(results, status) {
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < results.length; i++) {
-      var place = results[i];
-      createMarker({
-        text: place.name,
-        position: place.geometry.location
-      });
-    }
-  }
-}
-
