@@ -1,0 +1,53 @@
+version: 2.1
+orbs:
+  aws-ecr: circleci/aws-ecr@6.8.1 
+  aws-ecs: circleci/aws-ecs@1.1.0
+
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.6.0-node-browsers-legacy
+        environment:
+          RAILS_ENV: test
+          DB_HOST: 127.0.0.1
+          TZ: Asia/Tokyo
+      - image: mysql:5.7
+        environment:
+          MYSQL_USER: test
+          MYSQL_PASSWORD: test
+          MYSQL_DATABASE: g_app_test
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+    working_directory: ~/Gosyuin-app
+    steps:
+      - checkout
+      - restore_cache:
+          keys: 
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+          - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: wait for DB
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 3000s
+      # Database
+      - run: mv config/database.yml.ci config/database.yml
+      - run: bundle exec rake db:create --trace
+      - run: bundle exec rake db:schema:load --trace
+      # test
+      - run:
+          name: Run rspec
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split-by=timings)"
+            bundle exec rspec --format progress --color --format documentation
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results

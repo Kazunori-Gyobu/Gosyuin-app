@@ -5,7 +5,8 @@ ENV LANG C.UTF-8
 RUN apt-get update -qq &&  \
   apt-get -y install build-essential libpq-dev mysql-client imagemagick && \
   curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
-  apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
+  apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/* && \
+  apt-get update && apt-get install -y vim
 
 RUN mkdir /g_app
 ENV APP_ROOT /g_app
