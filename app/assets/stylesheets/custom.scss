@@ -97,13 +97,14 @@ ol {
 
 /* form */
 
-input[type="radio"],input[type="checkbox"]{
-  position: relative;
-  top: 2px;
+.form-check-inline .form-check-input {
+  vertical-align: middle;
+  margin: 20px 0;
 }
 
 .form-check-label {
   margin-right: 1em;
+  margin-left: 0.5em;
 }
 
 /* Table */

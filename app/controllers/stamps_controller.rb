@@ -57,10 +57,19 @@ class StampsController < ApplicationController
     render 'show'
   end
 
+  def search
+    @search_params = stamp_search_params
+    @stamps = Stamp.search(@search_params).includes(:stampbook)
+  end
+
   private
 
   def stamp_params
     params.require(:stamp).permit(:name, :given_date, :photo, :remove_photo, :photo_cache, :remarks, :distinction, :stampbook_id)
+  end
+
+  def stamp_search_params
+    params.fetch(:search, {}).permit(:name, :distinction, :given_date_from, :given_date_to, :stampbook_id)
   end
 
   def correct_user
