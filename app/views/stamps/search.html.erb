@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+    <h2 class="text-center">御朱印検索</h2>
+    <hr>
+    <%= form_with scope: :search, url: search_stamps_path, method: :get, local: true do |f| %>
+    <div class="form-group">
+      <%= f.label :name, "御朱印名" %>
+      <%= f.text_field :name, value: @search_params[:name], class: 'form-control' %>
+    </div>
+    <div class="form-check form-check-inline">
+      <%= f.radio_button(:distinction, "神社", class: 'form-check-input') %>
+      <%= f.label(:distinction, "神社", value: "神社", class: 'form-check-label') %>
+      <%= f.radio_button(:distinction, "寺院", class: 'form-check-input') %>
+      <%= f.label(:distinction, "寺院", value: "寺院", class: 'form-check-label') %>
+    </div>
+    <div class="form-group">
+      <%= f.label :given_date, "登録日" %>
+      <%= f.date_field :given_date_from, value: @search_params[:given_date_from], class: 'form-control' %> ~ <%= f.date_field :given_date_to, value: @search_params[:given_date_to], class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :stampbook_id, "御朱印帳名" %>
+      <%= f.text_field :stampbook_id, value: @search_params[:stampbook_id], class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "検索", class: "btn btn-primary btn-block btn-lg" %>
+    </div>
+    <% end %>
+    <div class="search-result">
+      <h3><i class="fas fa-search"></i>検索結果</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>御朱印名</th>
+            <th>御朱印帳名</th>
+            <th>ユーザー名</th>
+            <th>神社/寺院</th>
+            <th>登録日</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @stamps.each do |stamp| %>
+          <tr>
+            <td><%= link_to stamp.name, stamp %></td>
+            <td><%= stamp.stampbook.name %></td>
+            <td><%= stamp.user.name %></td>
+            <td><%= stamp.distinction %></td>
+            <td><%= stamp.given_date %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

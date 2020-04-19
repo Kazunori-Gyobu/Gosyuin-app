@@ -6,7 +6,7 @@
     <%= image_tag post.picture.url if post.picture? %>
   </span>
   <span class="timestamp">
-    投稿 <%= time_ago_in_words(post.created_at) %>前
+    <i class="far fa-clock"></i> <%= time_ago_in_words(post.created_at) %>前
     <%= link_to "削除", post, method: :delete, data: {confirm: "削除しますか？"} %>
   </span>
   <%= render "likes/like", post: post %>

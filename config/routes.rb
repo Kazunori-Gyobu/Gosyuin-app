@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :stamps do
     collection do
       get :owners
+      get :search
     end
   end
   resources :maps, only: :index
