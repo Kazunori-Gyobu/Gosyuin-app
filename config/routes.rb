@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       get :owners
     end
   end
+  resources :maps, only: :index
   
   resources :likes, only: [:create, :destroy]
 end
