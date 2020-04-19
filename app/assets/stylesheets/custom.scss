@@ -6,6 +6,14 @@
   box-sizing:         border-box;
 }
 
+.wf-hannari {
+  font-family: "Hannari";
+}
+
+.wf-sawarabimincho {
+  font-family: "Sawarabi Mincho";
+}
+
 /* miscellaneous */
 
 .debug_dump {
@@ -24,8 +32,14 @@ $accent-C: #dd4827;
 body {
   display: block;
   padding-top: 55px;
+  // font-family: "Sawarabi Mincho", sans-serif;
   font-family: 'Noto Sans JP', sans-serif;
   // margin-top: 100px;
+  background: image-url('/assets/kikumon-1.jpg');
+  background-color: rgba(255,255,255,0.8);
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  position: relative;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -50,7 +64,9 @@ h3 {
   margin-bottom: 20px;
   padding-top: 10px;
   padding-bottom: 20px;
-  background-color: $active-C;
+  background: -moz-linear-gradient(top left, #e9adca, #f2e1e6);
+  background: -webkit-linear-gradient(top left, #e9adca, #f2e1e6);
+  background: linear-gradient(to bottom right, #e9adca, #f2e1e6);
   text-align: center;
 }
 
@@ -120,6 +136,13 @@ td,th {
   padding: 5px;
   font-weight: normal;
   border-bottom: 1px solid $default-bg;
+}
+
+/* Search */
+
+.search-result {
+  margin: 30px 0;
+  text-align: center;
 }
 
 
@@ -237,12 +260,14 @@ td,th {
   list-style: none;
   padding: 0;
   li {
+    margin: 5px 0;
     padding: 10px 0;
-    border-top: 1px solid $default-bg;
+    background-color: #fff;
   }
 
   .user {
     margin-top: 5em;
+    margin-left: 1em;
     padding-top: 0;
   }
 
@@ -251,13 +276,24 @@ td,th {
     margin-left: 60px;
     img {
       display: block;
+      width: 90%;
       padding: 5px 0;
     }
+  }
+
+  .new_like, .edit_like {
+    margin-top: 10px;
+    margin-left: 60px;
   }
 
   .like-count, .timestamp {
     display: block;
     margin-left: 60px;
+  }
+
+  .like-button {
+    background-color: #fff;
+    border: none;
   }
   .unlike-btn {
     color: #e9adca;
@@ -270,13 +306,17 @@ td,th {
 }
 
 .account {
+  background-color: #fff;
   margin: 20px;
+  padding: 5px 0;
   font-size: 1.5em;
   font-weight: bold;
   text-align: center;
+  border-radius: 10px;
 }
 
 .account-box {
+  background-color: #fff;
   margin: 30px 0;
   padding: 30px 10px;
   text-align: center;
@@ -337,6 +377,7 @@ td,th {
 /* Stampbooks */
 
 .top-boxes {
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -433,6 +474,17 @@ td,th {
 
 /* Stamps */
 
+.stamps {
+  margin: 5px 0;
+}
+
+.stamps .card {
+  margin: 0 auto;
+  .card-header {
+    padding: 0.25em;
+  }
+}
+
 .stamp-photo img {
   margin: 5px;
   width: 70%;
@@ -461,9 +513,10 @@ td,th {
   padding: 0;
   border-radius: 5px;
   cursor: pointer;
-  width: 100%;
-  height: 300px;
+  width: auto;
+  height: auto;
   max-width: 450px;
+  min-height: 270px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -472,6 +525,10 @@ td,th {
   box-sizing: border-box;
   transition: 0.3s ease-out;
   text-align: center;
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
  
 #img_photo i {

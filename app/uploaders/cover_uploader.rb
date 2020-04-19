@@ -44,4 +44,6 @@ class CoverUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  process :fix_exif_rotation
 end
