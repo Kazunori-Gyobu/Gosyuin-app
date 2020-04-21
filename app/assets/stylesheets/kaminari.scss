@@ -1,0 +1,13 @@
+$default-C:#58495d;
+$active-C:#e9adca;
+$default-bg:#f2e1e6;
+$accent-C: #dd4827;
+
+.page-item.active .page-link {
+  background-color: #58495d;
+  border-color: #58495d;
+}
+
+.page-link {
+  color: #58495d;
+}

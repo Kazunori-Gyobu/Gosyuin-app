@@ -1,10 +1,11 @@
 $bgDefault      : #e9adca;
 $bgHighlight    : #f2e1e6;
-$colDefault     : #ffffff;
+$colDefault     : #d41c00;
 $colHighlight   : #58495d;
 $dropDown       : true;
 .navbar {
-  background: $bgDefault;
+  background: image-url('/assets/navbar-back.jpg');
+  opacity: 0.85;
   .navbar-brand {
     color: $colDefault;
     &:hover, &:focus {

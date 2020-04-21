@@ -2,9 +2,9 @@
   <% unless @stamp.nil? %>
   <div class="row">
     <div class="col-xs-12 col-md-6">
-      <div class="show-title stamp-color">
+      <div class="show-title">
         <% if current_user?(@user) %>
-        <h2><i class="fas fa-stamp"></i> My御朱印</h2>
+        <h2 class="wf-sawarabimincho"><i class="fas fa-stamp"></i> My御朱印</h2>
         <% else %>
         <h2><i class="fas fa-stamp"></i><%= @user.name %>の御朱印</h2>
         <% end%>
@@ -15,7 +15,7 @@
           </div>
           <div class="card-body">
             <div class="card-title">
-              <span class="stamp-name"><%= @stamp.name %></span>
+              <span class="wf-sawarabimincho stamp-name"><%= @stamp.name %></span>
             </div>
             <table>
               <tr>

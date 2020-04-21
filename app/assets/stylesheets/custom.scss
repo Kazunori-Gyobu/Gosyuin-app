@@ -25,7 +25,7 @@
 }
 
 $default-C:#58495d;
-$active-C:#e9adca;
+$active-C:#d4412a;
 $default-bg:#f2e1e6;
 $accent-C: #dd4827;
 
@@ -52,7 +52,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 1.8em;
   margin: 20px 0;
 }
 
@@ -62,11 +62,10 @@ h3 {
 
 .aside {
   margin-bottom: 20px;
-  padding-top: 10px;
+  padding-top: 40px;
   padding-bottom: 20px;
-  background: -moz-linear-gradient(top left, #e9adca, #f2e1e6);
-  background: -webkit-linear-gradient(top left, #e9adca, #f2e1e6);
-  background: linear-gradient(to bottom right, #e9adca, #f2e1e6);
+  background:  image-url('/assets/navbar-back.jpg');
+  opacity: 0.85;
   text-align: center;
 }
 
@@ -152,15 +151,15 @@ td,th {
   text-align: center;
   width: 100%;
   font-size: 1.5em;
-  background-color: $active-C;
+  background: rgba(255,255,255,0);
   padding: 10px 0;
   .notice {
     padding: -10px 0;
-    background-color: $default-bg;
+    background: rgba(255,255,255,0);
   }
   .alert {
     padding: -10px 0;
-    background-color: red;
+    background: rgba(255,255,255,0);
   }
   .success {
     padding: -10px 0;
@@ -494,13 +493,13 @@ td,th {
 }
 
 .stamp-color {
-  color: #DD4827;
+  color: #d41c00;
 }
 
 .stamp-name {
   font-size: 1.5em;
   font-weight: bold;
-  color: #DD4827;
+  color: #d41c00;
 }
 
 #img_photo {
